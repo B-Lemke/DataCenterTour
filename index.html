@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+
+      <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+      <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+      <script src="detectDevice.js"></script>
+      <!--
+
+    <script src="components.js"></script>
+    <script src="look-at.js"></script>
+    <script src="floorNavigation.js"></script>
+    <script src="jsonParse.js"></script>
+    -->
+  </head>
+  <body>
+    <a-scene device_detector >
+
+      <!--Asset Loading-->
+      <a-assets timeout="30000">
+
+      </a-assets>
+
+
+      <a-camera id="camera" wasd-controls-enabled="true" position="0 3 0">
+
+      </a-camera>
+    
+      <a-entity controller_connected windows-motion-controls laser-controls="hand: left" raycaster="objects: .clickable"></a-entity>
+      <a-entity controller_connected windows-motion-controls laser-controls="hand: right" raycaster="objects: .clickable"></a-entity>
+      
+      <a-videosphere id="videoSphere" ></a-videosphere>
+
+      <a-entity arena="manifest: manifest.json; videoSphere: #videoSphere"></a-entity>
+    </a-scene>
+  </body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,72 @@
+{
+    "places":{
+        "entry" : {
+            "name": "Entry",
+            "image": "assets/images/ambulance.jpg",
+            "video": "assets/videos/ambulance.jpg",
+            "things": [
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "position": {"x": 2, "y": 0, "z": 4},
+                        "title" : "hotside1",
+                        "place" : "hotside1",
+                        "image" : "assets/images/forensics.jpg",
+                        "imageRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "position": {"x": 3, "y": 0, "z": -6},
+                        "title" : "coldside1",
+                        "place" : "coldside1",
+                        "image" : "assets/images/forensics.jpg",
+                        "imageRotation" : 0
+                    }
+                }
+            ]
+        },
+        "hotside1" : {
+            "image": "assets/images/defibrillator.jpg",
+            "video": "assets/video/defibrillator.mp4",
+            "videoRotation": 270,
+            "name": "hotside1",
+            "things": [
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "position": {"x": -3, "y": 0, "z": 6},
+                        "title" : "entry",
+                        "place" : "entry",
+                        "image" : "assets/images/forensics.jpg",
+                        "imageRotation" : 0
+                    }
+                }
+            ]
+        },
+        "coldside1" :
+        {
+            "image": "assets/images/Range1.jpg",
+            "video": "assets/video/Range1.mp4",
+            "videoRotation": 270,
+            "name": "coldside1",
+            "things": [
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "position": {"x": -3, "y": 0, "z": 6},
+                        "title" : "entry",
+                        "place" : "entry",
+                        "image" : "assets/images/forensics.jpg",
+                        "imageRotation" : 0
+                    }
+                }
+            ]
+        }
+
+    },
+    "startPlace": "entry"
+}
+
+
