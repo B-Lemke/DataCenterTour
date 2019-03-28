@@ -51,8 +51,6 @@ AFRAME.registerComponent("arena", {
 
             //Loop through icons and load them into assets
             Object.keys(data.jsonparsed.icons).forEach(function(key){
-                console.log(data.jsonparsed.icons[key]);
-                console.log(data.jsonparsed.icons[key].image);
                 if(data.jsonparsed.icons[key].image != null){
                     var image = document.createElement('img');
                     image.setAttribute('id', data.jsonparsed.icons[key].name + "Icon");
@@ -78,8 +76,27 @@ AFRAME.registerComponent("arena", {
 
     loadPlace : function(place){
         var data = this.data;
-        console.log(place);
-        //Passed in from the outside as a string, not a json object
+
+        //Load all videos in assets and the videosphere
+        var videos = document.querySelectorAll("video");
+        var videosphere = document.querySelector(data.videoSphere);      
+
+/////////Cleanup the Scene
+        //Get an array of cleanable things in the scene and remove them
+        var cleanables = document.querySelectorAll(".cleanFromScene");
+        cleanables.forEach(function(cleaner){
+            cleaner.parentNode.removeChild(cleaner);
+        });     
+        //Pause any video that is already playing
+        if(videosphere.getAttribute('src') != null){
+            document.querySelector(videosphere.getAttribute('src')).pause();
+        }
+
+
+
+
+
+        //If passed in from the outside as a string, not a json object
         if(typeof place == "string"){
             place = data.jsonparsed.places[place];
         }
@@ -88,16 +105,13 @@ AFRAME.registerComponent("arena", {
 
         if (place.video != null){
             //Find the asset that matches the video
-            var videos = document.querySelectorAll("video");
-            var videosphere = document.querySelector(data.videoSphere);       
-
             var videoFound = false;
 
             for (var i = 0; i < videos.length; i++) {
             
                 //Set the video that matches on the videosphere
                 if(videos[i].src.endsWith(place.video)){
-                    console.log("Match");
+    
                     videosphere.setAttribute('src', '#' + videos[i].id);
                     video = document.querySelector("#" + videos[i].id);
  
@@ -137,8 +151,17 @@ AFRAME.registerComponent("arena", {
                     payload : JSON.stringify(interaction.payload),
                     icon : image
                 });
-                console.log("Testing");
-            } else{
+            } else if(interaction.kind == "hotspot"){
+                    //Retrieve the icon
+                    var image = document.querySelector("#" + interaction.icon + "Icon");
+                    
+                    //Send the payload and the icon
+                    interactionEntity.setAttribute("hotspot", {
+                        payload : JSON.stringify(interaction.payload),
+                        icon : image
+                    });
+            }    
+            else{
                 console.log(interaction.kind);
             }
             sceneEl.appendChild(interactionEntity);

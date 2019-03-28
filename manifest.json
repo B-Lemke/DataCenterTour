@@ -10,22 +10,22 @@
                     "kind": "navigationIcon",
                     "icon": "navigation",
                     "payload" : {
-                        "position": {"x": 2, "y": 0, "z": 4},
+                        "position": {"x": 2, "y": -6, "z": 4},
                         "title" : "hotside1",
                         "place" : "hotside1",
                         "image" : "assets/images/forensics.jpg",
-                        "imageRotation" : 0
+                        "iconRotation" : 220
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "icon": "navigation",
                     "payload" : {
-                        "position": {"x": 3, "y": 0, "z": -6},
+                        "position": {"x": 3, "y": -6, "z": -6},
                         "title" : "coldside1",
                         "place" : "coldside1",
                         "image" : "assets/images/forensics.jpg",
-                        "imageRotation" : 0
+                        "iconRotation" : 330
                     }
                 }
             ]
@@ -38,13 +38,24 @@
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    "icon": "assets/images/icons/home_dark.png",
+                    "icon": "navigation",
                     "payload" : {
-                        "position": {"x": -3, "y": 0, "z": 6},
+                        "position": {"x": -3, "y": -6, "z": 6},
                         "title" : "entry",
                         "place" : "entry",
                         "image" : "assets/images/forensics.jpg",
-                        "imageRotation" : 0
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": 4, "y": 0, "z": 2},
+                        "title" : "testHotspot",
+                        "hotspotText" : "This is a test hotspot with some really long text I wonder what it is going to look like if it is going to just be a really long line, I think so but you never know in this crazy world.",
+                        "hotspotRotation" : 100,
+                        "iconRotation" : 0
                     }
                 }
             ]
@@ -58,13 +69,13 @@
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    "icon": "assets/images/icons/home_dark.png",
+                    "icon": "navigation",
                     "payload" : {
-                        "position": {"x": -3, "y": 0, "z": 6},
+                        "position": {"x": -3, "y": -6, "z": 6},
                         "title" : "entry",
                         "place" : "entry",
                         "image" : "assets/images/forensics.jpg",
-                        "imageRotation" : 0
+                        "iconRotation" : 0
                     }
                 }
             ]
@@ -77,7 +88,12 @@
         "navigationIcon": 
         {
             "name" : "navigation",
-            "image": "assets/images/icons/home_dark.png" 
+            "image": "assets/images/icons/HomeIconRound.png" 
+        },
+        "hotspotIcon": 
+        {
+            "name" : "hotspot",
+            "image": "assets/images/icons/hotspot.png" 
         } 
     }
 }
