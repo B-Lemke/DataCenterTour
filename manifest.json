@@ -63,7 +63,7 @@
         "coldside1" :
         {
             "image": null,
-            "video": "assets/video/Range1.mp4",
+            "video": "assets/video/lobby.mp4",
             "videoRotation": 270,
             "name": "coldside1",
             "interactions": [
