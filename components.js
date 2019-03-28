@@ -3,15 +3,10 @@ if (window.NodeList && !NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-
-/*
-The location component is used to create the geometry and meshes for the spheres, text and planes for each location that will can be viewed.
-It also contains information on what to do when the sphere is clicked on (showing the video and hiding the location spheres).
-*/
-AFRAME.registerComponent('navigationIcon', {
-    //Define the schema for the location sphere    
+AFRAME.registerComponent('navigation_icon', { 
     schema: {
-        payload : {type: "string"}
+        payload : {type: "string"},
+        icon: {type: "selector"}
     },
 
     /*
@@ -21,121 +16,44 @@ AFRAME.registerComponent('navigationIcon', {
     init: function () {
         var data = this.data;
         var payload = JSON.parse(this.data.payload);
-        var el = document.createElement('a-entity');
+        var el = document.createElement('a-plane');
         var sceneEl = document.querySelector('a-scene');
+        
+        el.setAttribute('scale', '2 2 2');
+        el.setAttribute('rotation', '270 0 0');
+        el.setAttribute('material', 'src: #' + data.icon.id);
+        console.log(data.icon);
+        //Give the entity a class we can refer to it by later, and make it clickable
+        el.setAttribute("class", "navIcon clickable"); 
+        el.setAttribute("position", "0 -2 -1"); 
 
-
-
-        //Create geometry for SPHERE
-        this.sphereGeometry = new THREE.SphereBufferGeometry(1, 32, 32);
-
-        //Create material for sphere
-        texture = new THREE.TextureLoader().load(payload.image);
-        console.log(payload.image);
-        this.sphereMaterial = new THREE.MeshBasicMaterial({ map: texture });
-
-        //Create mesh for sphere
-        this.sphereMesh = new THREE.Mesh(this.sphereGeometry, this.sphereMaterial);
-        this.sphereMesh.position.set(payload.position.x, payload.position.y, payload.position.z);
-
-        //rotate the sphere's mesh so the home symbol faces the camera. It must be converted from degrees to Radians
-        //this.sphereMesh.rotation.y = (data.imageRotation * Math.PI) / 180;
-
-        el.setAttribute("class", "locationSphere");
-
-        el.setObject3D('mesh', this.sphereMesh);
         sceneEl.appendChild(el);
-
-
-
-        //Plane and text
-        var newPlane = document.createElement('a-entity');
-
-        newPlane.setAttribute('geometry', {
-            "primitive": "plane",
-            "width": 2,
-            "height": 0.8,
-        })
-
-        newPlane.setAttribute('position', {
-            "x": payload.position.x,
-            "y": payload.position.y - 1.4,
-            "z": payload.position.z,
-        })
-
-        newPlane.setAttribute("material", {
-            color: "#330000"
-        })
-
-        //Give the entity a class we can refer to it by later
-        newPlane.setAttribute("class", "navigationPlane");
-
-
-
-
-        //////////Text Values
-        newPlane.setAttribute("text", {
-            "value": payload.title,
-            "color": "white",
-            "align": "center",
-            "wrapCount": payload.title.length < 6 ? 8 : payload.title.length+3,
-            "zOffset": 0.005,
-        });
-
-
-
-        sceneEl.appendChild(newPlane);
-
-        newPlane.setAttribute("look-at", "#camera");
-
-
-
-        var self = this;
-        var videosphere = document.querySelector('#videoSphere');
-
+        console.log("added to scene");
         //Event listener for interaction
+        /*
         el.addEventListener('click', function (evt) {
 
-            
+            ////////Once any NavigationIcon has been clicked, clean the scene
+            if (el.getAttribute('visible') == true) {
+                 //Get an array clickable things in the scene and remove them
+                var clickables = document.querySelectorAll(".clickable");
+                clickables.forEach(function(clicky){
+                    clicky.parentNode.removeChild(clicky);
+                });     
+            }
 
-            //Get the arena
+            //Get the arena and load the next place
             var arena = document.querySelector("[arena]");
             console.log("Arena: " + arena);
                 
             arena.emit("loadNewPlace", {place: payload.place});
 
-            ////////Once any visible sphere has been clicked for a location, hide the spheres, planes and text
-            //Check if the sphere is visible
-            if (el.getAttribute('visible') == true) {
-                
-
-                //Get an array of all of the sphere and loop through them setting their visibility to false
-                var spheres = document.querySelectorAll(".locationSphere");
-                for (var i = 0; i < spheres.length; i++) {
-                    spheres[i].setAttribute("visible", false);
-                }
-                var navPlanes = document.querySelectorAll(".navigationPlane");
-                for (var i = 0; i < navPlanes.length; i++) {
-                    navPlanes[i].setAttribute("visible", false);
-                }
-
-                //Any item with the fade-out attribute should run its fadeOutGo animation
-                fadeOutItems = document.querySelectorAll("[fade-out]");
-                fadeOutItems.forEach(function(fadeItem){
-                    fadeItem.emit('fadeOutGo');
-                });
-
-
-                //Make the home button and label visisble
-                var homebuttonPlane = document.querySelector(".homeNavigationPlane");
-                homebuttonPlane.setAttribute("visible", true);
-
-
-
-            }
-
         });
+        */
+
     }
+
+
 });
 
 

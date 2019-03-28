@@ -1,12 +1,14 @@
 {
     "places":{
         "entry" : {
-            "name": "Entry",
-            "image": "assets/images/ambulance.jpg",
-            "video": "assets/videos/ambulance.jpg",
-            "things": [
+            "name": "entry",
+            "image": null,
+            "video": "assets/video/ambulance.mp4",
+            "videoRotation": 270,
+            "interactions": [
                 {
                     "kind": "navigationIcon",
+                    "icon": "navigation",
                     "payload" : {
                         "position": {"x": 2, "y": 0, "z": 4},
                         "title" : "hotside1",
@@ -17,6 +19,7 @@
                 },
                 {
                     "kind": "navigationIcon",
+                    "icon": "navigation",
                     "payload" : {
                         "position": {"x": 3, "y": 0, "z": -6},
                         "title" : "coldside1",
@@ -28,13 +31,14 @@
             ]
         },
         "hotside1" : {
-            "image": "assets/images/defibrillator.jpg",
+            "image": null,
             "video": "assets/video/defibrillator.mp4",
             "videoRotation": 270,
             "name": "hotside1",
-            "things": [
+            "interactions": [
                 {
                     "kind": "navigationIcon",
+                    "icon": "assets/images/icons/home_dark.png",
                     "payload" : {
                         "position": {"x": -3, "y": 0, "z": 6},
                         "title" : "entry",
@@ -47,13 +51,14 @@
         },
         "coldside1" :
         {
-            "image": "assets/images/Range1.jpg",
+            "image": null,
             "video": "assets/video/Range1.mp4",
             "videoRotation": 270,
             "name": "coldside1",
-            "things": [
+            "interactions": [
                 {
                     "kind": "navigationIcon",
+                    "icon": "assets/images/icons/home_dark.png",
                     "payload" : {
                         "position": {"x": -3, "y": 0, "z": 6},
                         "title" : "entry",
@@ -66,7 +71,15 @@
         }
 
     },
-    "startPlace": "entry"
+    "startPlace": "entry",
+    "icons": 
+    {
+        "navigationIcon": 
+        {
+            "name" : "navigation",
+            "image": "assets/images/icons/home_dark.png" 
+        } 
+    }
 }
 
 

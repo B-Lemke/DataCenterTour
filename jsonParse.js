@@ -2,7 +2,7 @@
 AFRAME.registerComponent("arena", {
     schema : {
         manifest : { type: 'asset'},
-        videoSphere : {type: 'selector'},
+        videoSphere : {type: 'string'},
     },
 
     init: function(){
@@ -17,7 +17,7 @@ AFRAME.registerComponent("arena", {
         //Load the json
         new THREE.FileLoader().load(self.data.manifest, function(json){
            data.jsonparsed = (JSON.parse(json));
-           self.initManifest(data.jsonparsed); 
+
             
             //Loop through the places in the json and preload the videos and images into assets
             Object.keys(data.jsonparsed.places).forEach(function(key){
@@ -46,8 +46,27 @@ AFRAME.registerComponent("arena", {
                     var assets = document.querySelector("a-assets");
                     assets.appendChild(image);
                 }
+
             });
-            
+
+            //Loop through icons and load them into assets
+            Object.keys(data.jsonparsed.icons).forEach(function(key){
+                console.log(data.jsonparsed.icons[key]);
+                console.log(data.jsonparsed.icons[key].image);
+                if(data.jsonparsed.icons[key].image != null){
+                    var image = document.createElement('img');
+                    image.setAttribute('id', data.jsonparsed.icons[key].name + "Icon");
+                    image.setAttribute('crossorigin', 'anonymous');
+                    image.setAttribute('src', data.jsonparsed.icons[key].image);    
+
+                    var assets = document.querySelector("a-assets");
+                    assets.appendChild(image);
+                }
+            });
+
+           
+            self.initManifest(data.jsonparsed); 
+
         });
     },
 
@@ -58,8 +77,75 @@ AFRAME.registerComponent("arena", {
     },
 
     loadPlace : function(place){
+        var data = this.data;
+        console.log(place);
+        //Passed in from the outside as a string, not a json object
+        if(typeof place == "string"){
+            place = data.jsonparsed.places[place];
+        }
+ 
+        var sceneEl = document.querySelector('a-scene');
+
+        if (place.video != null){
+            //Find the asset that matches the video
+            var videos = document.querySelectorAll("video");
+            var videosphere = document.querySelector(data.videoSphere);       
+
+            var videoFound = false;
+
+            for (var i = 0; i < videos.length; i++) {
+            
+                //Set the video that matches on the videosphere
+                if(videos[i].src.endsWith(place.video)){
+                    console.log("Match");
+                    videosphere.setAttribute('src', '#' + videos[i].id);
+                    video = document.querySelector("#" + videos[i].id);
+ 
+                    video.currentTime = 0;
+                    video.play();
+
+                    videoFound = true;
+                } 
+            } 
+            if(!videoFound){
+                //Error handling for videos that aren't found
+                console.log("Video not found");
+            }
+            //Set the videosphere's rotation because a lot of these videos are not facing the right way.
+            videosphere.setAttribute("rotation", "0 " + place.videoRotation + " 0");
+
+        }else{
+            console.log("Video null");
+        }
+        
+
+        // place interactions in scene
+        var interaction;
+        var interactionEntity;
+        for(var i = 0; i < place.interactions.length; i++){
+            interaction = place.interactions[i];
+            interactionEntity = document.createElement('a-entity');
+            
+
+
+            if(interaction.kind == "navigationIcon"){
+                //Retrieve the icon
+                var image = document.querySelector("#" + interaction.icon + "Icon");
+                
+                //Send the payload and the icon
+                interactionEntity.setAttribute("navigation_icon", {
+                    payload : JSON.stringify(interaction.payload),
+                    icon : image
+                });
+                console.log("Testing");
+            } else{
+                console.log(interaction.kind);
+            }
+            sceneEl.appendChild(interactionEntity);
+        }
+
+        
 
     }
-
 
 })
