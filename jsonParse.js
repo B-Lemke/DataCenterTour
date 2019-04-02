@@ -62,6 +62,18 @@ AFRAME.registerComponent("arena", {
                 }
             });
 
+             //Loop through hotspot images and load them into assets
+             Object.keys(data.jsonparsed.hotspotImages).forEach(function(key){
+                if(data.jsonparsed.hotspotImages[key].image != null){
+                    var image = document.createElement('img');
+                    image.setAttribute('id', data.jsonparsed.hotspotImages[key].name + "hotspotImage");
+                    image.setAttribute('crossorigin', 'anonymous');
+                    image.setAttribute('src', data.jsonparsed.hotspotImages[key].image);    
+
+                    var assets = document.querySelector("a-assets");
+                    assets.appendChild(image);
+                }
+            });
            
             self.initManifest(data.jsonparsed); 
 

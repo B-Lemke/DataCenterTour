@@ -51,11 +51,68 @@
                     "kind": "hotspot",
                     "icon": "hotspot",
                     "payload" : {
-                        "position": {"x": 4, "y": 0, "z": 2},
+                        "position": {"x": 10, "y": 1, "z": -3},
                         "title" : "testHotspot",
-                        "hotspotText" : "This is a test hotspot with some really long text I wonder what it is going to look like if it is going to just be a really long line, I think so but you never know in this crazy world.",
-                        "hotspotRotation" : 100,
-                        "iconRotation" : 0
+                        "hotspotType" : "text",
+                        "hotspotScale" : 2,
+                        "hotspotText" : "This is a door handle.",
+                        "hotspotRotation" : {"x": 0, "y": 300, "z": 0},
+                        "textboxRotation" : {"x": 0, "y": 300, "z": 0}
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": 0, "y": 0, "z": 10},
+                        "title" : "testHotspot2",
+                        "hotspotType" : "text",
+                        "hotspotScale" : 1,
+                        "hotspotText" : "This text box looks at me. Also, this is a dummy!",
+                        "hotspotRotation" : "look-at",
+                        "textboxRotation" : "look-at"
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": -2.5, "y": 0, "z": 6},
+                        "title" : "dummyHotspot",
+                        "hotspotType" : "image",
+                        "hotspotScale" : 0.5,
+                        "hotspotImage" : "dummy",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 3
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": -6, "y": 3, "z": 5},
+                        "title" : "skeletonHotspot",
+                        "hotspotType" : "image",
+                        "hotspotScale" : 0.1,
+                        "hotspotImage" : "skeleton",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 1.5
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": 1.5, "y": 4, "z": -8.5},
+                        "title" : "electricHotspot",
+                        "hotspotType" : "image",
+                        "hotspotScale" : 0.25,
+                        "hotspotImage" : "electric",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 2
                     }
                 }
             ]
@@ -95,6 +152,24 @@
             "name" : "hotspot",
             "image": "assets/images/icons/hotspot.png" 
         } 
+    },
+    "hotspotImages":
+    {
+        "dummy":
+        {
+            "name" : "dummy",
+            "image" : "assets/images/hotspots/Dummy.png"
+        },
+        "skeleton":
+        {
+            "name" : "skeleton",
+            "image" : "assets/images/hotspots/skeleton.png"
+        },
+        "electric":
+        {
+            "name" : "electric",
+            "image" : "assets/images/hotspots/electric.png"
+        }
     }
 }
 

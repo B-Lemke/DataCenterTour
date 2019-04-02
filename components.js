@@ -64,11 +64,16 @@ AFRAME.registerComponent('hotspot', {
         var el = document.createElement('a-plane');
         var sceneEl = document.querySelector('a-scene');
         
-        el.setAttribute('scale', '2 2 2');
+        var hotspotScale = payload.hotspotScale != null ? payload.hotspotScale : 1;
+        el.setAttribute('scale', `${hotspotScale} ${hotspotScale} ${hotspotScale}`);
 
         //If an icon rotation hasn't been set, set one
-        var iconRotation = payload.iconRotation != null ? payload.iconRotation : 0;
-        el.setAttribute('rotation', '270 ' + iconRotation + ' 0');
+        if(payload.hotspotRotation != "look-at"){
+            var iconRotation = payload.hotspotRotation != null ? payload.hotspotRotation : {"x" : 0, "y" : 0, "z": 0};
+            el.setAttribute('rotation', iconRotation);
+        } else {
+            el.setAttribute('look-at', '#camera');
+        }
         el.setAttribute('material', 'transparent:true; opacity:0.9; src: #' + data.icon.id);
 
         //Give the entity a class we can refer to it by later, and make it clickable
@@ -85,27 +90,55 @@ AFRAME.registerComponent('hotspot', {
                 el.classList.remove("clickable");
                 el.setAttribute('visible', false);
 
+                if(payload.hotspotType === "text"){
+                    
                 //Create a text box
-                
-                var newTextbox = document.createElement("a-entity");
-                newTextbox.setAttribute('position', payload.position);
-                newTextbox.setAttribute('rotation', '270 ' + iconRotation + ' 0');
-                newTextbox.setAttribute('geometry', 'primitive: plane; width: auto; height: auto;');
-                newTextbox.setAttribute('material', 'color: blue');
-                newTextbox.setAttribute('id', payload.title);
-                newTextbox.setAttribute('text', 'width: 4; value: ' + payload.hotspotText);
-                newTextbox.setAttribute("class", "hotspotText clickable cleanFromScene"); 
+                var newPopup = document.createElement("a-entity");
+                newPopup.setAttribute('position', payload.position);
+                if(payload.textboxRotation != "look-at"){
+                    newPopup.setAttribute('rotation', payload.textboxRotation);
+                } else{
+                    newPopup.setAttribute("look-at", "#camera");
+                }
 
-                newTextbox.addEventListener('click', function (evt) {
+                newPopup.setAttribute('geometry', 'primitive: plane; width: auto; height: auto;');
+                newPopup.setAttribute('material', 'color: white');
+                newPopup.setAttribute('id', payload.title);
+                newPopup.setAttribute('text', 'width: 6; color: black; zOffset: 0.01; align:center; value: ' + payload.hotspotText);
+
+                newPopup.setAttribute("class", "hotspotText");
+
+                } else if (payload.hotspotType =="image"){
+                    //Image hotspot
+                    var newPopup = document.createElement("a-plane");
+                    newPopup.setAttribute("class", "hotspotImage");
+                    newPopup.setAttribute('position', payload.position);
+
+                    var imageScale = payload.imageScale != null ? payload.imageScale : 1;
+                    newPopup.setAttribute('scale', `${imageScale} ${imageScale} ${imageScale}`);
+
+
+                    if(payload.imageRotation != "look-at"){
+                        newPopup.setAttribute('rotation', payload.imageRotation);
+                    } else{
+                        newPopup.setAttribute("look-at", "#camera");
+                    }
+                    console.log('#' + payload.hotspotImage + 'hotspotImage');
+                    newPopup.setAttribute('material', 'transparent:true; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
+            
+                }
+
+                //For both text and images
+                newPopup.setAttribute("class", "clickable cleanFromScene");
+                sceneEl.appendChild(newPopup);
+                newPopup.addEventListener('click', function (evt) {
                     console.log("Test");
-                    var hotspot = document.querySelector("#"+this.getAttribute("id")+"Hotspot");
+                    var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                     hotspot.setAttribute('visible', true);
                     hotspot.classList.add("clickable");
                     this.parentNode.removeChild(this);
-
                 });
 
-                sceneEl.appendChild(newTextbox);
             }
 
         });
