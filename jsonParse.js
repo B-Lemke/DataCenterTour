@@ -96,7 +96,10 @@ AFRAME.registerComponent("arena", {
 /////////Cleanup the Scene
         //Get an array of cleanable things in the scene and remove them
         var cleanables = document.querySelectorAll(".cleanFromScene");
+        
         cleanables.forEach(function(cleaner){
+            console.log(cleaner);
+            console.log(cleaner.parentNode);
             cleaner.parentNode.removeChild(cleaner);
         });     
         //Pause any video that is already playing

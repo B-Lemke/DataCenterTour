@@ -14,6 +14,9 @@ AFRAME.registerComponent('navigation_icon', {
     */
 
     init: function () {
+        //additional cleanup line to make sure the parent a-entity gets cleaned up
+        this.el.setAttribute("class", "cleanFromScene");
+
         var data = this.data;
         var payload = JSON.parse(this.data.payload);
         var el = document.createElement('a-plane');
@@ -48,6 +51,45 @@ AFRAME.registerComponent('navigation_icon', {
 
 });
 
+AFRAME.registerComponent('welcome_screen', { 
+    schema: {
+    },
+    init: function () {
+        //This deals with autoplay issues where the browser requires an interaction before videos can be played.
+
+        var el = this.el;
+        var sceneEl = document.querySelector('a-scene');
+
+
+        var plane = document.createElement("a-plane");
+        plane.setAttribute('text', 'width: 6; color: black; zOffset: 0.01; align:center; value: Get Started;');
+        plane.setAttribute('position', '1 3 -10');
+        plane.setAttribute('class', 'clickable');
+        sceneEl.appendChild(plane);
+
+        var camera = document.querySelector("a-camera");
+        camera.setAttribute("look-controls-enabled", false);
+
+        //Remove everything from the scene and play the videosphere
+        plane.addEventListener('click', function (evt) {
+            sceneEl.removeChild(plane);
+            camera.setAttribute("look-controls-enabled", true);
+
+            //play videosphere
+            var videosphere = document.querySelector("a-videosphere");
+            if(videosphere.getAttribute('src') != null){
+                document.querySelector(videosphere.getAttribute('src')).play();
+            }
+    
+
+        });
+
+
+    }
+});
+
+
+
 AFRAME.registerComponent('hotspot', { 
     schema: {
         payload : {type: "string"},
@@ -59,6 +101,10 @@ AFRAME.registerComponent('hotspot', {
     */
 
     init: function () {
+        //additional cleanup line to make sure the parent a-entity gets cleaned up
+        this.el.setAttribute("class", "cleanFromScene");
+
+
         var data = this.data;
         var payload = JSON.parse(this.data.payload);
         var el = document.createElement('a-plane');

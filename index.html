@@ -8,7 +8,7 @@
       <script src="components.js"></script>
       <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
       <script src="detectDevice.js"></script>
-
+    
       <script src="jsonParse.js"></script>
 
       <!--
@@ -20,7 +20,7 @@
     -->
   </head>
   <body>
-    <a-scene device_detector >
+    <a-scene device_detector welcome_screen light="defaultLightsEnabled: false">
 
       <!--Asset Loading-->
       <a-assets timeout="30000">
@@ -31,13 +31,15 @@
       <a-camera id="camera" wasd-controls-enabled="false" position="0 3 0">
 
       </a-camera>
-    
+      
       <a-entity controller_connected windows-motion-controls laser-controls="hand: left" raycaster="objects: .clickable"></a-entity>
       <a-entity controller_connected windows-motion-controls laser-controls="hand: right" raycaster="objects: .clickable"></a-entity>
       
       <a-videosphere id="videoSphere"></a-videosphere>
 
       <a-entity arena="manifest: manifest.json; videoSphere: #videoSphere"></a-entity>
+
+      <a-entity light="intensity: 1; castShadow: true; type: ambient" position="-0.5 1 1" data-aframe-default-light="" visible=""></a-entity>
     </a-scene>
   </body>
 
