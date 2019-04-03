@@ -40,8 +40,7 @@ AFRAME.registerComponent('navigation_icon', {
 
             //Get the arena and load the next place
             var arena = document.querySelector("[arena]");
-            console.log("Arena: " + arena);
-                
+              
             arena.emit("loadNewPlace", {place: payload.place});
 
         });
@@ -49,43 +48,6 @@ AFRAME.registerComponent('navigation_icon', {
     }
 
 
-});
-
-AFRAME.registerComponent('welcome_screen', { 
-    schema: {
-    },
-    init: function () {
-        //This deals with autoplay issues where the browser requires an interaction before videos can be played.
-
-        var el = this.el;
-        var sceneEl = document.querySelector('a-scene');
-
-
-        var plane = document.createElement("a-plane");
-        plane.setAttribute('text', 'width: 6; color: black; zOffset: 0.01; align:center; value: Get Started;');
-        plane.setAttribute('position', '1 3 -10');
-        plane.setAttribute('class', 'clickable');
-        sceneEl.appendChild(plane);
-
-        var camera = document.querySelector("a-camera");
-        camera.setAttribute("look-controls-enabled", false);
-
-        //Remove everything from the scene and play the videosphere
-        plane.addEventListener('click', function (evt) {
-            sceneEl.removeChild(plane);
-            camera.setAttribute("look-controls-enabled", true);
-
-            //play videosphere
-            var videosphere = document.querySelector("a-videosphere");
-            if(videosphere.getAttribute('src') != null){
-                document.querySelector(videosphere.getAttribute('src')).play();
-            }
-    
-
-        });
-
-
-    }
 });
 
 
@@ -169,7 +131,7 @@ AFRAME.registerComponent('hotspot', {
                     } else{
                         newPopup.setAttribute("look-at", "#camera");
                     }
-                    console.log('#' + payload.hotspotImage + 'hotspotImage');
+
                     newPopup.setAttribute('material', 'transparent:true; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
             
                 }
@@ -178,7 +140,7 @@ AFRAME.registerComponent('hotspot', {
                 newPopup.setAttribute("class", "clickable cleanFromScene");
                 sceneEl.appendChild(newPopup);
                 newPopup.addEventListener('click', function (evt) {
-                    console.log("Test");
+
                     var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                     hotspot.setAttribute('visible', true);
                     hotspot.classList.add("clickable");
@@ -194,6 +156,45 @@ AFRAME.registerComponent('hotspot', {
 
 });
 
+
+AFRAME.registerComponent('welcome_screen', { 
+    schema: {
+    },
+    init: function () {
+        //This deals with autoplay issues where the browser requires an interaction before videos can be played.
+
+        var el = this.el;
+        var sceneEl = document.querySelector('a-scene');
+
+
+        var plane = document.createElement("a-plane");
+        plane.setAttribute("width", 4);
+        plane.setAttribute("height", 2);
+        plane.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeImage' );
+        plane.setAttribute('position', '0 3 -3');
+        plane.setAttribute('class', 'clickable');
+        sceneEl.appendChild(plane);
+
+        var camera = document.querySelector("a-camera");
+        camera.setAttribute("look-controls-enabled", false);
+
+        //Remove everything from the scene and play the videosphere
+        plane.addEventListener('click', function (evt) {
+            sceneEl.removeChild(plane);
+            camera.setAttribute("look-controls-enabled", true);
+
+            //play videosphere
+            var videosphere = document.querySelector("a-videosphere");
+            if(videosphere.getAttribute('src') != null){
+                document.querySelector(videosphere.getAttribute('src')).play();
+            }
+    
+
+        });
+
+
+    }
+});
 
 
 /*

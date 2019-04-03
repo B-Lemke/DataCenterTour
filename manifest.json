@@ -170,7 +170,8 @@
             "name" : "electric",
             "image" : "assets/images/hotspots/electric.png"
         }
-    }
+    },
+    "welcomeImage": "assets/images/welcomemessage.png"
 }
 
 

@@ -74,7 +74,16 @@ AFRAME.registerComponent("arena", {
                     assets.appendChild(image);
                 }
             });
-           
+
+            
+            var image = document.createElement('img');
+            image.setAttribute('id', "welcomeImage");
+            image.setAttribute('crossorigin', 'anonymous');
+            image.setAttribute('src', data.jsonparsed.welcomeImage);    
+
+            var assets = document.querySelector("a-assets");
+            assets.appendChild(image);
+            
             self.initManifest(data.jsonparsed); 
 
         });
@@ -98,8 +107,7 @@ AFRAME.registerComponent("arena", {
         var cleanables = document.querySelectorAll(".cleanFromScene");
         
         cleanables.forEach(function(cleaner){
-            console.log(cleaner);
-            console.log(cleaner.parentNode);
+
             cleaner.parentNode.removeChild(cleaner);
         });     
         //Pause any video that is already playing
