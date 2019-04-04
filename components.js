@@ -70,10 +70,12 @@ AFRAME.registerComponent('hotspot', {
         var data = this.data;
         var payload = JSON.parse(this.data.payload);
         var el = document.createElement('a-plane');
+        
         var sceneEl = document.querySelector('a-scene');
         
         var hotspotScale = payload.hotspotScale != null ? payload.hotspotScale : 1;
-        el.setAttribute('scale', `${hotspotScale} ${hotspotScale} ${hotspotScale}`);
+        el.setAttribute('width', hotspotScale);
+        el.setAttribute('fit-texture', true);
 
         //If an icon rotation hasn't been set, set one
         if(payload.hotspotRotation != "look-at"){
@@ -82,6 +84,7 @@ AFRAME.registerComponent('hotspot', {
         } else {
             el.setAttribute('look-at', '#camera');
         }
+        el.setAttribute('geometry', 'primitive: plane;');
         el.setAttribute('material', 'transparent:true; opacity:0.9; src: #' + data.icon.id);
 
         //Give the entity a class we can refer to it by later, and make it clickable
@@ -109,7 +112,7 @@ AFRAME.registerComponent('hotspot', {
                     newPopup.setAttribute("look-at", "#camera");
                 }
 
-                newPopup.setAttribute('geometry', 'primitive: plane; width: auto; height: auto;');
+                newPopup.setAttribute('geometry', 'primitive: plane;');
                 newPopup.setAttribute('material', 'color: white');
                 newPopup.setAttribute('id', payload.title);
                 newPopup.setAttribute('text', 'width: 6; color: black; zOffset: 0.01; align:center; value: ' + payload.hotspotText);
@@ -123,8 +126,8 @@ AFRAME.registerComponent('hotspot', {
                     newPopup.setAttribute('position', payload.position);
 
                     var imageScale = payload.imageScale != null ? payload.imageScale : 1;
-                    newPopup.setAttribute('scale', `${imageScale} ${imageScale} ${imageScale}`);
-
+                    newPopup.setAttribute('width', imageScale);
+                    newPopup.setAttribute('fit-texture', true);
 
                     if(payload.imageRotation != "look-at"){
                         newPopup.setAttribute('rotation', payload.imageRotation);
@@ -151,8 +154,9 @@ AFRAME.registerComponent('hotspot', {
 
         });
     
-    }
+    },
 
+   
 
 });
 
@@ -161,6 +165,7 @@ AFRAME.registerComponent('welcome_screen', {
     schema: {
     },
     init: function () {
+        this.buttonMoved = false;
         //This deals with autoplay issues where the browser requires an interaction before videos can be played.
 
         var el = this.el;
@@ -168,19 +173,39 @@ AFRAME.registerComponent('welcome_screen', {
 
 
         var plane = document.createElement("a-plane");
-        plane.setAttribute("width", 4);
-        plane.setAttribute("height", 2);
-        plane.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeImage' );
+
+        plane.setAttribute('material', 'transparent:true; opacity:1; src: assets/images/welcomemessage.png' );
+        plane.setAttribute('fit-texture', "");
+        plane.setAttribute('width', 4)
         plane.setAttribute('position', '0 3 -3');
-        plane.setAttribute('class', 'clickable');
+        plane.setAttribute('id', 'welcomePlane');
         sceneEl.appendChild(plane);
+
+
+        var button = document.createElement("a-plane");
+
+        button.setAttribute('material', 'transparent:true; opacity:1; src: assets/images/welcomebutton.png' );
+        button.setAttribute('fit-texture', "");
+        button.setAttribute('visible', false);
+        button.setAttribute('width', 1.5)
+        button.setAttribute('class', 'clickable');
+        button.setAttribute('id', 'welcomeButton');
+
+        sceneEl.appendChild(button);
+
+        var buttonheight= 10
+        button.setAttribute('position', '0 2.1 -3');
 
         var camera = document.querySelector("a-camera");
         camera.setAttribute("look-controls-enabled", false);
 
+
+        
         //Remove everything from the scene and play the videosphere
-        plane.addEventListener('click', function (evt) {
+        button.addEventListener('click', function (evt) {
+
             sceneEl.removeChild(plane);
+            sceneEl.removeChild(button);
             camera.setAttribute("look-controls-enabled", true);
 
             //play videosphere
@@ -193,7 +218,23 @@ AFRAME.registerComponent('welcome_screen', {
         });
 
 
+    },
+    tick: function (time, timeDelta){
+        //Had to wait for the resizing to happen to set these.
+        if(!this.buttonMoved){
+            var plane = document.querySelector("#welcomePlane");
+            var button = document.querySelector("#welcomeButton");
+            if(plane.getAttribute("geometry")!=undefined && button.getAttribute("geometry")!=undefined)
+            {
+                
+                this.buttonMoved = true;
+                var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height) + .1 ; 
+                button.setAttribute('position', '0 ' + buttonheight + ' -3');
+                button.setAttribute("visible", true);
+            }
+        }
     }
+
 });
 
 

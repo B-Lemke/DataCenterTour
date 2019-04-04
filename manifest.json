@@ -84,7 +84,7 @@
                         "hotspotImage" : "dummy",
                         "hotspotRotation" : "look-at",
                         "imageRotation" : "look-at",
-                        "imageScale" : 3
+                        "imageScale" : 5
                     }
                 },
                 {
@@ -134,6 +134,20 @@
                         "image" : "assets/images/forensics.jpg",
                         "iconRotation" : 0
                     }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": 0.10, "y": 3.7, "z": -5},
+                        "title" : "thiccHotspot",
+                        "hotspotType" : "image",
+                        "hotspotScale" : 0.3,
+                        "hotspotImage" : "thicc",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 3
+                    }
                 }
             ]
         }
@@ -169,6 +183,11 @@
         {
             "name" : "electric",
             "image" : "assets/images/hotspots/electric.png"
+        },
+        "thicc":
+        {
+            "name" : "thicc",
+            "image" : "assets/images/hotspots/thicchotspot.png"
         }
     },
     "welcomeImage": "assets/images/welcomemessage.png"
