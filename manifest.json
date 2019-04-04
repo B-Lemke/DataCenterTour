@@ -190,7 +190,19 @@
             "image" : "assets/images/hotspots/thicchotspot.png"
         }
     },
-    "welcomeImage": "assets/images/welcomemessage.png"
+    "otherImages":
+    {
+        "welcomeImage":
+        {
+            "name": "welcomeImage",
+            "image": "assets/images/welcomemessage.png"
+        },
+        "welcomeButton":
+        {
+            "name": "welcomeButton",
+            "image": "assets/images/welcomebutton.png"
+        }
+    }
 }
 
 

@@ -112,7 +112,7 @@ AFRAME.registerComponent('hotspot', {
                     newPopup.setAttribute("look-at", "#camera");
                 }
 
-                newPopup.setAttribute('geometry', 'primitive: plane;');
+                newPopup.setAttribute('geometry', 'primitive: plane; width:auto; height: auto;');
                 newPopup.setAttribute('material', 'color: white');
                 newPopup.setAttribute('id', payload.title);
                 newPopup.setAttribute('text', 'width: 6; color: black; zOffset: 0.01; align:center; value: ' + payload.hotspotText);
@@ -164,7 +164,8 @@ AFRAME.registerComponent('hotspot', {
 AFRAME.registerComponent('welcome_screen', { 
     schema: {
     },
-    init: function () {
+    //changed to update to make sure that the scaling on the fit-texture was working
+    update: function () {
         this.buttonMoved = false;
         //This deals with autoplay issues where the browser requires an interaction before videos can be played.
 
@@ -174,27 +175,24 @@ AFRAME.registerComponent('welcome_screen', {
 
         var plane = document.createElement("a-plane");
 
-        plane.setAttribute('material', 'transparent:true; opacity:1; src: assets/images/welcomemessage.png' );
-        plane.setAttribute('fit-texture', "");
+        plane.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeImageotherImg' );
         plane.setAttribute('width', 4)
         plane.setAttribute('position', '0 3 -3');
         plane.setAttribute('id', 'welcomePlane');
         sceneEl.appendChild(plane);
-
+        plane.setAttribute("fit-texture", "");
 
         var button = document.createElement("a-plane");
 
-        button.setAttribute('material', 'transparent:true; opacity:1; src: assets/images/welcomebutton.png' );
-        button.setAttribute('fit-texture', "");
+        button.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeButtonotherImg' );
         button.setAttribute('visible', false);
         button.setAttribute('width', 1.5)
         button.setAttribute('class', 'clickable');
         button.setAttribute('id', 'welcomeButton');
 
         sceneEl.appendChild(button);
+        button.setAttribute("fit-texture", "");
 
-        var buttonheight= 10
-        button.setAttribute('position', '0 2.1 -3');
 
         var camera = document.querySelector("a-camera");
         camera.setAttribute("look-controls-enabled", false);
@@ -226,7 +224,7 @@ AFRAME.registerComponent('welcome_screen', {
             var button = document.querySelector("#welcomeButton");
             if(plane.getAttribute("geometry")!=undefined && button.getAttribute("geometry")!=undefined)
             {
-                
+
                 this.buttonMoved = true;
                 var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height) + .1 ; 
                 button.setAttribute('position', '0 ' + buttonheight + ' -3');

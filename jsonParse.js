@@ -75,14 +75,19 @@ AFRAME.registerComponent("arena", {
                 }
             });
 
-            
-            var image = document.createElement('img');
-            image.setAttribute('id', "welcomeImage");
-            image.setAttribute('crossorigin', 'anonymous');
-            image.setAttribute('src', data.jsonparsed.welcomeImage);    
+            //Loop through hotspot images and load them into assets
+            Object.keys(data.jsonparsed.otherImages).forEach(function(key){
+                if(data.jsonparsed.otherImages[key].image != null){
+                    var image = document.createElement('img');
+                    image.setAttribute('id', data.jsonparsed.otherImages[key].name + "otherImg");
+                    image.setAttribute('crossorigin', 'anonymous');
+                    image.setAttribute('src', data.jsonparsed.otherImages[key].image);    
 
-            var assets = document.querySelector("a-assets");
-            assets.appendChild(image);
+                    var assets = document.querySelector("a-assets");
+                    assets.appendChild(image);
+                }
+            });
+            
             
             self.initManifest(data.jsonparsed); 
 
