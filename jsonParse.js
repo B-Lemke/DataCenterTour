@@ -75,7 +75,21 @@ AFRAME.registerComponent("arena", {
                 }
             });
 
-            //Loop through hotspot images and load them into assets
+            
+             //Loop through hotspot audio and load them into assets
+             Object.keys(data.jsonparsed.hotspotAudio).forEach(function(key){
+                if(data.jsonparsed.hotspotAudio[key].audio != null){
+                    var audio = document.createElement('audio');
+                    audio.setAttribute('id', data.jsonparsed.hotspotAudio[key].name + "hotspotAudio");
+                    audio.setAttribute('crossorigin', 'anonymous');
+                    audio.setAttribute('src', data.jsonparsed.hotspotAudio[key].audio);    
+
+                    var assets = document.querySelector("a-assets");
+                    assets.appendChild(audio);
+                }
+            });
+
+            //Loop through other images and load them into assets
             Object.keys(data.jsonparsed.otherImages).forEach(function(key){
                 if(data.jsonparsed.otherImages[key].image != null){
                     var image = document.createElement('img');

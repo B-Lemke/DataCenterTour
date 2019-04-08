@@ -148,6 +148,21 @@
                         "imageRotation" : "look-at",
                         "imageScale" : 3
                     }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": 5, "y": 2, "z": -2},
+                        "title" : "chord",
+                        "hotspotType" : "audio",
+                        "hotspotScale" : 1,
+                        "hotspotAudio" : "cchord",
+                        "hotspotImage" : "soundClip",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 1
+                    }
                 }
             ]
         }
@@ -188,6 +203,24 @@
         {
             "name" : "thicc",
             "image" : "assets/images/hotspots/thicchotspot.png"
+        },
+        "soundClip":
+        {
+            "name" : "soundClip",
+            "image" : "assets/images/hotspots/soundClip.png"
+        }
+    },
+    "hotspotAudio":
+    {
+        "cchord":
+        {
+            "name" : "cchord",
+            "audio" : "assets/audio/cChord.mp3"
+        },
+        "cicadas":
+        {
+            "name" : "cicadas",
+            "audio" : "assets/audio/cicadas.mp3"
         }
     },
     "otherImages":

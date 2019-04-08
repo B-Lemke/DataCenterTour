@@ -119,8 +119,8 @@ AFRAME.registerComponent('hotspot', {
 
                 newPopup.setAttribute("class", "hotspotText");
 
-                } else if (payload.hotspotType =="image"){
-                    //Image hotspot
+                } else if (payload.hotspotType =="image" || payload.hotspotType =="audio"){
+                    //Image hotspot, or the image for an audio hotspot
                     var newPopup = document.createElement("a-plane");
                     newPopup.setAttribute("class", "hotspotImage");
                     newPopup.setAttribute('position', payload.position);
@@ -137,16 +137,40 @@ AFRAME.registerComponent('hotspot', {
 
                     newPopup.setAttribute('material', 'transparent:true; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
             
-                }
+                    if (payload.hotspotType =="audio"){
+                        //play audioclip
+                        var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
+                        audio.play();
+
+                        //Add event listener for when this audio ends
+                        audio.addEventListener('ended', function removeAudioWhenDone() {
+                            newPopup.emit('click');
+                        });
+                    }
+
+                } 
 
                 //For both text and images
                 newPopup.setAttribute("class", "clickable cleanFromScene");
                 sceneEl.appendChild(newPopup);
+                
                 newPopup.addEventListener('click', function (evt) {
+
+                    if (payload.hotspotType =="audio"){
+                        //Stop the audio clip that is currently playing and reset the clip
+                        var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
+                        audio.pause();
+                        audio.currentTime = 0;
+                        console.log(audio);
+                        audio.removeEventListener('ended', removeAudioWhenDone);
+                    }
+
 
                     var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                     hotspot.setAttribute('visible', true);
                     hotspot.classList.add("clickable");
+                    console.log(this);
+                    console.log(this.parentNode);
                     this.parentNode.removeChild(this);
                 });
 
@@ -226,7 +250,7 @@ AFRAME.registerComponent('welcome_screen', {
             {
 
                 this.buttonMoved = true;
-                var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height) + .1 ; 
+                var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height)/2 + .225 ; 
                 button.setAttribute('position', '0 ' + buttonheight + ' -3');
                 button.setAttribute("visible", true);
             }
@@ -301,4 +325,5 @@ AFRAME.registerComponent('fade-out', {
 
 
 });
+
 
