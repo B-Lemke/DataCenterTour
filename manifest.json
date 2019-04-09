@@ -163,6 +163,21 @@
                         "imageRotation" : "look-at",
                         "imageScale" : 1
                     }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": -2, "y": 2, "z": -2},
+                        "title" : "cicadas",
+                        "hotspotType" : "audio",
+                        "hotspotScale" : 1,
+                        "hotspotAudio" : "cicadas",
+                        "hotspotImage" : "soundClip",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 1
+                    }
                 }
             ]
         }

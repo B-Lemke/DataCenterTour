@@ -161,17 +161,22 @@ AFRAME.registerComponent('hotspot', {
                         var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
                         audio.pause();
                         audio.currentTime = 0;
-                        console.log(audio);
-                        audio.removeEventListener('ended', removeAudioWhenDone);
+                        //console.log(audio);
+                        
+                        //Trick to get rid of the anonymous event listeners on the audio files that were cuasing issues. Clones the audio file and gets rid of the event listeners on the old one.
+                        audioClone = audio.cloneNode(true);
+                        audio.parentNode.replaceChild(audioClone, audio);
                     }
 
 
                     var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                     hotspot.setAttribute('visible', true);
                     hotspot.classList.add("clickable");
+                    console.log("This:");
                     console.log(this);
+                    console.log("This parent:");
                     console.log(this.parentNode);
-                    this.parentNode.removeChild(this);
+                    newPopup.parentNode.removeChild(newPopup);
                 });
 
             }
