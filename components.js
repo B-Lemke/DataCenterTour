@@ -136,11 +136,24 @@ AFRAME.registerComponent('hotspot', {
                     }
 
                     newPopup.setAttribute('material', 'transparent:true; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
-            
+
                     if (payload.hotspotType =="audio"){
+                        
+                        //Look through all of the audio files, and check if they are currently playing.
+                        var allAudio = document.querySelectorAll("audio");
+                        allAudio.forEach(function(audioclip){
+                            if (!audioclip.paused){
+                                //If the clip is not paused, then run the ended event on it to stop it and end it so the new audio can start
+                                var event = new Event('ended');
+                                audioclip.dispatchEvent(event);
+                            }
+                        })
+
+
                         //play audioclip
                         var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
                         audio.play();
+                        
 
                         //Add event listener for when this audio ends
                         audio.addEventListener('ended', function removeAudioWhenDone() {
@@ -172,10 +185,7 @@ AFRAME.registerComponent('hotspot', {
                     var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                     hotspot.setAttribute('visible', true);
                     hotspot.classList.add("clickable");
-                    console.log("This:");
-                    console.log(this);
-                    console.log("This parent:");
-                    console.log(this.parentNode);
+
                     newPopup.parentNode.removeChild(newPopup);
                 });
 

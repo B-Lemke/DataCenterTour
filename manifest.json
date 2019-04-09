@@ -153,7 +153,7 @@
                     "kind": "hotspot",
                     "icon": "hotspot",
                     "payload" : {
-                        "position": {"x": 5, "y": 2, "z": -2},
+                        "position": {"x": 5, "y": 2, "z": -3},
                         "title" : "chord",
                         "hotspotType" : "audio",
                         "hotspotScale" : 1,
@@ -168,7 +168,7 @@
                     "kind": "hotspot",
                     "icon": "hotspot",
                     "payload" : {
-                        "position": {"x": -2, "y": 2, "z": -2},
+                        "position": {"x": -2, "y": 2, "z": -4},
                         "title" : "cicadas",
                         "hotspotType" : "audio",
                         "hotspotScale" : 1,
