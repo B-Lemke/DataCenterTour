@@ -151,7 +151,7 @@
                 },
                 {
                     "kind": "hotspot",
-                    "icon": "hotspot",
+                    "icon": "soundHotspot",
                     "payload" : {
                         "position": {"x": 5, "y": 2, "z": -3},
                         "title" : "chord",
@@ -166,7 +166,7 @@
                 },
                 {
                     "kind": "hotspot",
-                    "icon": "hotspot",
+                    "icon": "soundHotspot",
                     "payload" : {
                         "position": {"x": -2, "y": 2, "z": -4},
                         "title" : "cicadas",
@@ -174,6 +174,20 @@
                         "hotspotScale" : 1,
                         "hotspotAudio" : "cicadas",
                         "hotspotImage" : "soundClip",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at",
+                        "imageScale" : 1
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": -2, "y": 5, "z": -4},
+                        "title" : "horse",
+                        "hotspotType" : "video",
+                        "hotspotScale" : 1,
+                        "hotspotVideo" : "horse",
                         "hotspotRotation" : "look-at",
                         "imageRotation" : "look-at",
                         "imageScale" : 1
@@ -195,6 +209,11 @@
         {
             "name" : "hotspot",
             "image": "assets/images/icons/hotspot.png" 
+        },
+        "soundHotspot": 
+        {
+            "name" : "soundHotspot",
+            "image": "assets/images/icons/soundhotspot.png" 
         } 
     },
     "hotspotImages":
@@ -223,6 +242,14 @@
         {
             "name" : "soundClip",
             "image" : "assets/images/hotspots/soundClip.png"
+        }
+    },
+    "hotspotVideos":
+    {
+        "horse":
+        {
+            "name" : "horse",
+            "video" : "assets/video/horse.mp4"
         }
     },
     "hotspotAudio":

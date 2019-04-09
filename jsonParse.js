@@ -18,6 +18,18 @@ AFRAME.registerComponent("arena", {
         new THREE.FileLoader().load(self.data.manifest, function(json){
            data.jsonparsed = (JSON.parse(json));
 
+            //Loop through "other images" (welcome, etc.) and load them into assets
+            Object.keys(data.jsonparsed.otherImages).forEach(function(key){
+                if(data.jsonparsed.otherImages[key].image != null){
+                    var image = document.createElement('img');
+                    image.setAttribute('id', data.jsonparsed.otherImages[key].name + "otherImg");
+                    image.setAttribute('crossorigin', 'anonymous');
+                    image.setAttribute('src', data.jsonparsed.otherImages[key].image);    
+
+                    var assets = document.querySelector("a-assets");
+                    assets.appendChild(image);
+                }
+            });
             
             //Loop through the places in the json and preload the videos and images into assets
             Object.keys(data.jsonparsed.places).forEach(function(key){
@@ -89,18 +101,20 @@ AFRAME.registerComponent("arena", {
                 }
             });
 
-            //Loop through other images and load them into assets
-            Object.keys(data.jsonparsed.otherImages).forEach(function(key){
-                if(data.jsonparsed.otherImages[key].image != null){
-                    var image = document.createElement('img');
-                    image.setAttribute('id', data.jsonparsed.otherImages[key].name + "otherImg");
-                    image.setAttribute('crossorigin', 'anonymous');
-                    image.setAttribute('src', data.jsonparsed.otherImages[key].image);    
+             //Loop through hotspot videos and load them into assets
+             Object.keys(data.jsonparsed.hotspotVideos).forEach(function(key){
+                if(data.jsonparsed.hotspotVideos[key].video != null){
+                    var vid = document.createElement('video');
+                    vid.setAttribute('id', data.jsonparsed.hotspotVideos[key].name + "hotspotVideo");
+                    vid.setAttribute('crossorigin', 'anonymous');
+                    vid.setAttribute('src', data.jsonparsed.hotspotVideos[key].video);    
 
                     var assets = document.querySelector("a-assets");
-                    assets.appendChild(image);
+                    assets.appendChild(vid);
                 }
             });
+
+
             
             
             self.initManifest(data.jsonparsed); 

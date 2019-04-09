@@ -161,34 +161,57 @@ AFRAME.registerComponent('hotspot', {
                         });
                     }
 
-                } 
+                }else if(payload.hotspotType =="video"){
 
-                //For both text and images
-                newPopup.setAttribute("class", "clickable cleanFromScene");
-                sceneEl.appendChild(newPopup);
-                
-                newPopup.addEventListener('click', function (evt) {
 
-                    if (payload.hotspotType =="audio"){
-                        //Stop the audio clip that is currently playing and reset the clip
-                        var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
-                        audio.pause();
-                        audio.currentTime = 0;
-                        //console.log(audio);
-                        
-                        //Trick to get rid of the anonymous event listeners on the audio files that were cuasing issues. Clones the audio file and gets rid of the event listeners on the old one.
-                        audioClone = audio.cloneNode(true);
-                        audio.parentNode.replaceChild(audioClone, audio);
+                    //Pause the videosphere if playing.
+                    videosphere = document.querySelector("a-videosphere");
+                    if(videosphere.getAttribute('src') != null){
+                        document.querySelector(videosphere.getAttribute('src')).pause();
                     }
 
 
-                    var hotspot = document.querySelector("#"+payload.title+"Hotspot");
-                    hotspot.setAttribute('visible', true);
-                    hotspot.classList.add("clickable");
 
-                    newPopup.parentNode.removeChild(newPopup);
-                });
+                    video = document.querySelector("#" + payload.hotspotVideo + "hotspotVideo");
+                    console.log(video);
+                    video.play();
+                    video.loop = false;
+                    var videoPlayer = document.createElement("a-plane");
+                    videoPlayer.setAttribute("material", "src: #" + video.id);
+                    videoPlayer.setAttribute("width", 4);
+                    videoPlayer.setAttribute("fit-texture", "");
+                    videoPlayer.setAttribute('position', '0 3 -3');
+                    sceneEl.appendChild(videoPlayer);
+                }
 
+
+                if (newPopup != undefined){
+                    //For all hotspots except video
+                    newPopup.setAttribute("class", "clickable cleanFromScene");
+                    sceneEl.appendChild(newPopup);
+                    
+                    newPopup.addEventListener('click', function (evt) {
+
+                        if (payload.hotspotType =="audio"){
+                            //Stop the audio clip that is currently playing and reset the clip
+                            var audio = document.querySelector("#" + payload.hotspotAudio + "hotspotAudio");
+                            audio.pause();
+                            audio.currentTime = 0;
+                            //console.log(audio);
+                            
+                            //Trick to get rid of the anonymous event listeners on the audio files that were cuasing issues. Clones the audio file and gets rid of the event listeners on the old one.
+                            audioClone = audio.cloneNode(true);
+                            audio.parentNode.replaceChild(audioClone, audio);
+                        }
+
+
+                        var hotspot = document.querySelector("#"+payload.title+"Hotspot");
+                        hotspot.setAttribute('visible', true);
+                        hotspot.classList.add("clickable");
+
+                        newPopup.parentNode.removeChild(newPopup);
+                    });
+                }
             }
 
         });
