@@ -107,6 +107,8 @@ AFRAME.registerComponent("arena", {
                     var vid = document.createElement('video');
                     vid.setAttribute('id', data.jsonparsed.hotspotVideos[key].name + "hotspotVideo");
                     vid.setAttribute('crossorigin', 'anonymous');
+                    vid.setAttribute('playsinline', "");
+                    vid.setAttribute('webkit-playsinline', "");
                     vid.setAttribute('src', data.jsonparsed.hotspotVideos[key].video);    
 
                     var assets = document.querySelector("a-assets");

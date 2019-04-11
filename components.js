@@ -139,15 +139,8 @@ AFRAME.registerComponent('hotspot', {
 
                     if (payload.hotspotType =="audio"){
                         
-                        //Look through all of the audio files, and check if they are currently playing.
-                        var allAudio = document.querySelectorAll("audio");
-                        allAudio.forEach(function(audioclip){
-                            if (!audioclip.paused){
-                                //If the clip is not paused, then run the ended event on it to stop it and end it so the new audio can start
-                                var event = new Event('ended');
-                                audioclip.dispatchEvent(event);
-                            }
-                        })
+                        closeAudio();
+                        closeVideos();
 
 
                         //play audioclip
@@ -171,25 +164,36 @@ AFRAME.registerComponent('hotspot', {
                     }
 
 
+                    closeVideos();
+                    closeAudio();
+
 
                     video = document.querySelector("#" + payload.hotspotVideo + "hotspotVideo");
                     console.log(video);
+                    video.currentTime = 0;
                     video.play();
-                    video.loop = false;
-                    var videoPlayer = document.createElement("a-plane");
-                    videoPlayer.setAttribute("material", "src: #" + video.id);
-                    videoPlayer.setAttribute("width", 4);
-                    videoPlayer.setAttribute("fit-texture", "");
-                    videoPlayer.setAttribute('position', '0 3 -3');
-                    sceneEl.appendChild(videoPlayer);
+                    var newPopup = document.createElement("a-plane");
+
+                    newPopup.setAttribute("width", 4);
+                    newPopup.setAttribute("fit-texture", "");
+                    newPopup.setAttribute('position', '0 3 -3');
+                    newPopup.setAttribute("material", "src: #" + video.id);
+
+
+                    //Add event listener for when this video ends
+                    video.addEventListener('ended', function removeVideoWhenDone() {
+                        newPopup.emit('click');
+                    });
+
                 }
 
+                
 
                 if (newPopup != undefined){
                     //For all hotspots except video
                     newPopup.setAttribute("class", "clickable cleanFromScene");
                     sceneEl.appendChild(newPopup);
-                    
+
                     newPopup.addEventListener('click', function (evt) {
 
                         if (payload.hotspotType =="audio"){
@@ -205,12 +209,20 @@ AFRAME.registerComponent('hotspot', {
                         }
 
 
+                        if(payload.hotspotType=="video"){
+                            //Trick to get rid of the anonymous event listeners on the video files that were cuasing issues. Clones the video file and gets rid of the event listeners on the old one.
+                            videoClone = video.cloneNode(true);
+                            video.parentNode.replaceChild(videoClone, video);
+                        }
+
                         var hotspot = document.querySelector("#"+payload.title+"Hotspot");
                         hotspot.setAttribute('visible', true);
                         hotspot.classList.add("clickable");
 
                         newPopup.parentNode.removeChild(newPopup);
                     });
+
+
                 }
             }
 
@@ -365,3 +377,27 @@ AFRAME.registerComponent('fade-out', {
 });
 
 
+function closeVideos(){
+    
+    //Look through all of the video files, and check if they are currently playing.
+    var allVideo = document.querySelectorAll("video");
+    allVideo.forEach(function(videoClip){
+        if (!videoClip.paused){
+            //If the clip is not paused, then run the ended event on it to stop it and end it so the new audio can start
+            var event = new Event('ended');
+            videoClip.dispatchEvent(event);
+        }
+    })
+}
+
+function closeAudio(){
+    //Look through all of the audio files, and check if they are currently playing.
+    var allAudio = document.querySelectorAll("audio");
+    allAudio.forEach(function(audioclip){
+        if (!audioclip.paused){
+            //If the clip is not paused, then run the ended event on it to stop it and end it so the new audio can start
+            var event = new Event('ended');
+            audioclip.dispatchEvent(event);
+        }
+    })
+}

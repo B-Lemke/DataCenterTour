@@ -189,8 +189,20 @@
                         "hotspotScale" : 1,
                         "hotspotVideo" : "horse",
                         "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 1
+                        "imageRotation" : "look-at"
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "hotspot",
+                    "payload" : {
+                        "position": {"x": -6, "y": 5, "z": -4},
+                        "title" : "coffee",
+                        "hotspotType" : "video",
+                        "hotspotScale" : 1,
+                        "hotspotVideo" : "coffee",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : "look-at"
                     }
                 }
             ]
@@ -250,6 +262,11 @@
         {
             "name" : "horse",
             "video" : "assets/video/horse.mp4"
+        },
+        "coffee":
+        {
+            "name" : "coffee",
+            "video" : "assets/video/coffee.mp4"
         }
     },
     "hotspotAudio":
