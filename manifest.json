@@ -4,6 +4,7 @@
             "name": "entry",
             "image": null,
             "video": "assets/video/ambulance.mp4",
+            "CountsTowardCompletetion": true,
             "videoRotation": 270,
             "interactions": [
                 {
@@ -31,10 +32,11 @@
             ]
         },
         "hotside1" : {
-            "image": null,
-            "video": "assets/video/defibrillator.mp4",
+            "image": "assets/images/forensics.jpg",
+            "video": null,
             "videoRotation": 270,
             "name": "hotside1",
+            "CountsTowardCompletetion": true,
             "interactions": [
                 {
                     "kind": "navigationIcon",
@@ -123,6 +125,7 @@
             "video": "assets/video/lobby.mp4",
             "videoRotation": 270,
             "name": "coldside1",
+            "CountsTowardCompletetion": false,
             "interactions": [
                 {
                     "kind": "navigationIcon",

@@ -76,12 +76,11 @@
              self.applyTransformation();
            } else {
              var textureLoaded = function(e) {
-              console.log(e);
-              console.log("Hello");
+
                 var w = e.detail.texture.image.videoWidth || e.detail.texture.image.width;
-                console.log("W: " + w);
+
                 var h = e.detail.texture.image.videoHeight || e.detail.texture.image.height;
-                console.log("H: " + h);
+
                 // Don't apply transformation on incomplete info
                 
                 if(h === 0 || w === 0) {console.log("This is the issue"); return;}
@@ -93,9 +92,7 @@
              }
              el.addEventListener('materialvideoloadeddata', textureLoaded);
              el.addEventListener('materialtextureloaded', textureLoaded);
-            
-             el.addEventListener('materialvideoloadeddata', function(){console.log("videodataloaded");});
-             el.addEventListener('materialtextureloaded', function(){console.log("materialtextureloaded");});
+
              //Bugs: Lin 86 freaks if the assets aren't loaded.
              //78 never fires off with videos from assets with line 93
            }

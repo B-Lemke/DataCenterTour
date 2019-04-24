@@ -27,7 +27,7 @@ AFRAME.registerComponent('navigation_icon', {
         //If an icon rotation hasn't been set, set one
         var iconRotation = payload.iconRotation != null ? payload.iconRotation : 0;
         el.setAttribute('rotation', '270 ' + iconRotation + ' 0');
-        el.setAttribute('material', 'transparent:true; opacity:0.9; src: #' + data.icon.id);
+        el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + data.icon.id);
 
         //Give the entity a class we can refer to it by later, and make it clickable
         el.setAttribute("class", "navIcon clickable cleanFromScene"); 
@@ -85,7 +85,7 @@ AFRAME.registerComponent('hotspot', {
             el.setAttribute('look-at', '#camera');
         }
         el.setAttribute('geometry', 'primitive: plane;');
-        el.setAttribute('material', 'transparent:true; opacity:0.9; src: #' + data.icon.id);
+        el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + data.icon.id);
 
         //Give the entity a class we can refer to it by later, and make it clickable
         el.setAttribute("class", "hotspot clickable cleanFromScene"); 
@@ -163,22 +163,20 @@ AFRAME.registerComponent('hotspot', {
                         document.querySelector(videosphere.getAttribute('src')).pause();
                     }
 
-
                     closeVideos();
                     closeAudio();
+
+                    var newPopup = document.createElement("a-plane");
+
+                    newPopup.setAttribute('position', '0 3 -3');
+                    newPopup.setAttribute("material", "src: #" + payload.hotspotVideo + "hotspotVideo");
+                    console.log(newPopup);
 
 
                     video = document.querySelector("#" + payload.hotspotVideo + "hotspotVideo");
                     console.log(video);
                     video.currentTime = 0;
                     video.play();
-                    var newPopup = document.createElement("a-plane");
-
-                    newPopup.setAttribute("width", 4);
-                    newPopup.setAttribute("fit-texture", "");
-                    newPopup.setAttribute('position', '0 3 -3');
-                    newPopup.setAttribute("material", "src: #" + video.id);
-
 
                     //Add event listener for when this video ends
                     video.addEventListener('ended', function removeVideoWhenDone() {
@@ -210,9 +208,20 @@ AFRAME.registerComponent('hotspot', {
 
 
                         if(payload.hotspotType=="video"){
+                            var video = document.querySelector("#" + payload.hotspotVideo + "hotspotVideo");
+                            video.pause();
+                            video.currentTime=0;
+
                             //Trick to get rid of the anonymous event listeners on the video files that were cuasing issues. Clones the video file and gets rid of the event listeners on the old one.
                             videoClone = video.cloneNode(true);
                             video.parentNode.replaceChild(videoClone, video);
+
+
+                            //Pause the videosphere if playing.
+                            videosphere = document.querySelector("a-videosphere");
+                            if(videosphere.getAttribute('src') != null){
+                                document.querySelector(videosphere.getAttribute('src')).play();
+                            }
                         }
 
                         var hotspot = document.querySelector("#"+payload.title+"Hotspot");
