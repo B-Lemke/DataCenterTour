@@ -27,7 +27,9 @@ AFRAME.registerComponent('navigation_icon', {
         //If an icon rotation hasn't been set, set one
         var iconRotation = payload.iconRotation != null ? payload.iconRotation : 0;
         el.setAttribute('rotation', '270 ' + iconRotation + ' 0');
-        el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + data.icon.id);
+
+        console.log(payload.icon);
+        el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + payload.icon);
 
         //Give the entity a class we can refer to it by later, and make it clickable
         el.setAttribute("class", "navIcon clickable cleanFromScene"); 
@@ -135,7 +137,7 @@ AFRAME.registerComponent('hotspot', {
                         newPopup.setAttribute("look-at", "#camera");
                     }
 
-                    newPopup.setAttribute('material', 'transparent:true; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
+                    newPopup.setAttribute('material', 'transparent:true; alphaTest:0.5; opacity:1; src: #' + payload.hotspotImage + 'hotspotImage' );
 
                     if (payload.hotspotType =="audio"){
                         

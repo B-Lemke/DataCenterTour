@@ -1,218 +1,562 @@
 {
     "places":{
-        "entry" : {
-            "name": "entry",
+        "intro" : {
+            "name": "intro",
             "image": null,
-            "video": "assets/video/ambulance.mp4",
+            "video": "assets/video/intro.mp4",
             "CountsTowardCompletetion": true,
             "videoRotation": 270,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    "icon": "navigation",
                     "payload" : {
-                        "position": {"x": 2, "y": -6, "z": 4},
-                        "title" : "hotside1",
-                        "place" : "hotside1",
-                        "image" : "assets/images/forensics.jpg",
+                        "icon": "fireIcon",
+                        "position": {"x": 3, "y": -6, "z": -10},
+                        "title" : "fire_suppression",
+                        "place" : "fire_suppression",
                         "iconRotation" : 220
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    "icon": "navigation",
                     "payload" : {
-                        "position": {"x": 3, "y": -6, "z": -6},
-                        "title" : "coldside1",
-                        "place" : "coldside1",
-                        "image" : "assets/images/forensics.jpg",
+                        "icon": "securityIcon",
+                        "position": {"x": 2, "y": -6, "z": 4},
+                        "title" : "security",
+                        "place" : "security",
                         "iconRotation" : 330
                     }
                 }
             ]
         },
-        "hotside1" : {
-            "image": "assets/images/forensics.jpg",
-            "video": null,
+        "fire_suppression" : {
+            "image": null,
+            "video": "assets/video/fire_suppression.mp4",
             "videoRotation": 270,
-            "name": "hotside1",
+            "name": "fire_suppression",
             "CountsTowardCompletetion": true,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    "icon": "navigation",
+                    
                     "payload" : {
-                        "position": {"x": -3, "y": -6, "z": 6},
-                        "title" : "entry",
-                        "place" : "entry",
-                        "image" : "assets/images/forensics.jpg",
+                        "icon": "introIcon",
+                        "position": {"x": 6, "y": -6, "z": 3},
+                        "title" : "intro",
+                        "place" : "intro",
                         "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
+                    "kind": "navigationIcon",
+                    
                     "payload" : {
-                        "position": {"x": 10, "y": 1, "z": -3},
-                        "title" : "testHotspot",
-                        "hotspotType" : "text",
-                        "hotspotScale" : 2,
-                        "hotspotText" : "This is a door handle.",
-                        "hotspotRotation" : {"x": 0, "y": 300, "z": 0},
-                        "textboxRotation" : {"x": 0, "y": 300, "z": 0}
+                        "icon": "navigationIcon",
+                        "position": {"x": 4, "y": -6, "z": -3},
+                        "title" : "cabinet4",
+                        "place" : "cabinet4",
+                        "iconRotation" : 0
+                    }
+                }                   
+            ]
+        },
+        "security" :
+        {
+            "image": null,
+            "video": "assets/video/security.mp4",
+            "videoRotation": 90,
+            "name": "security",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "introIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "intro",
+                        "place" : "intro",
+                        "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
+                    "kind": "navigationIcon",
+                    
                     "payload" : {
-                        "position": {"x": 0, "y": 0, "z": 10},
-                        "title" : "testHotspot2",
-                        "hotspotType" : "text",
-                        "hotspotScale" : 1,
-                        "hotspotText" : "This text box looks at me. Also, this is a dummy!",
-                        "hotspotRotation" : "look-at",
-                        "textboxRotation" : "look-at"
-                    }
-                },
-                {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
-                    "payload" : {
-                        "position": {"x": -2.5, "y": 0, "z": 6},
-                        "title" : "dummyHotspot",
-                        "hotspotType" : "image",
-                        "hotspotScale" : 0.5,
-                        "hotspotImage" : "dummy",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 5
-                    }
-                },
-                {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
-                    "payload" : {
-                        "position": {"x": -6, "y": 3, "z": 5},
-                        "title" : "skeletonHotspot",
-                        "hotspotType" : "image",
-                        "hotspotScale" : 0.1,
-                        "hotspotImage" : "skeleton",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 1.5
-                    }
-                },
-                {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
-                    "payload" : {
-                        "position": {"x": 1.5, "y": 4, "z": -8.5},
-                        "title" : "electricHotspot",
-                        "hotspotType" : "image",
-                        "hotspotScale" : 0.25,
-                        "hotspotImage" : "electric",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 2
+                        "icon": "navigationIcon",
+                        "position": {"x": 5, "y": -6, "z": 3},
+                        "title" : "power_supplies",
+                        "place" : "power_supplies",
+                        "iconRotation" : 0
                     }
                 }
             ]
         },
-        "coldside1" :
+        "cabinet4":
         {
-            "image": null,
-            "video": "assets/video/lobby.mp4",
-            "videoRotation": 270,
-            "name": "coldside1",
+            "image": "assets/images/cabinet4.jpg",
+            "video": null,
+            "videoRotation": 90,
+            "name": "cabinet4",
             "CountsTowardCompletetion": false,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    "icon": "navigation",
+                    
                     "payload" : {
-                        "position": {"x": -3, "y": -6, "z": 6},
-                        "title" : "entry",
-                        "place" : "entry",
-                        "image" : "assets/images/forensics.jpg",
+                        "icon": "navigationIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "cabinet2",
+                        "place" : "cabinet2",
                         "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
+                    "kind": "navigationIcon",
+                    
                     "payload" : {
-                        "position": {"x": 0.10, "y": 3.7, "z": -5},
-                        "title" : "thiccHotspot",
-                        "hotspotType" : "image",
-                        "hotspotScale" : 0.3,
-                        "hotspotImage" : "thicc",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 3
+                        "icon": "fireIcon",
+                        "position": {"x": 5, "y": -6, "z": 3},
+                        "title" : "fire_suppression",
+                        "place" : "fire_suppression",
+                        "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "soundHotspot",
+                    "kind": "navigationIcon",
                     "payload" : {
-                        "position": {"x": 5, "y": 2, "z": -3},
-                        "title" : "chord",
-                        "hotspotType" : "audio",
-                        "hotspotScale" : 1,
-                        "hotspotAudio" : "cchord",
-                        "hotspotImage" : "soundClip",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 1
+                        "icon": "bladeSystemIcon",
+                        "position": {"x": 4, "y": -5, "z": 2},
+                        "title" : "blade_system",
+                        "place" : "blade_system",
+                        "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "soundHotspot",
+                    "kind": "navigationIcon",
                     "payload" : {
-                        "position": {"x": -2, "y": 2, "z": -4},
-                        "title" : "cicadas",
-                        "hotspotType" : "audio",
-                        "hotspotScale" : 1,
-                        "hotspotAudio" : "cicadas",
-                        "hotspotImage" : "soundClip",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at",
-                        "imageScale" : 1
+                        "icon": "storageIcon",
+                        "position": {"x": -2, "y": -5, "z": 3},
+                        "title" : "storage",
+                        "place" : "storage",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "cabinet2":
+        {
+            "image": "assets/images/cabinet2.jpg",
+            "video": null,
+            "videoRotation": 90,
+            "name": "cabinet2",
+            "CountsTowardCompletetion": false,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position":{"x": 5, "y": -6, "z": 3},
+                        "title" : "cabinet4",
+                        "place" : "cabinet4",
+                        "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
+                    "kind": "navigationIcon",
+                    
                     "payload" : {
-                        "position": {"x": -2, "y": 5, "z": -4},
-                        "title" : "horse",
-                        "hotspotType" : "video",
-                        "hotspotScale" : 1,
-                        "hotspotVideo" : "horse",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at"
+                        "icon": "structuredCablingIcon",
+                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "title" : "structured_cabling",
+                        "place" : "structured_cabling",
+                        "iconRotation" : 0
                     }
                 },
                 {
-                    "kind": "hotspot",
-                    "icon": "hotspot",
+                    "kind": "navigationIcon",
+                    
                     "payload" : {
-                        "position": {"x": -6, "y": 5, "z": -4},
-                        "title" : "coffee",
-                        "hotspotType" : "video",
-                        "hotspotScale" : 1,
-                        "hotspotVideo" : "coffee",
-                        "hotspotRotation" : "look-at",
-                        "imageRotation" : "look-at"
+                        "icon": "coolingIcon",
+                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "title" : "cooling",
+                        "place" : "cooling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "upsIcon",
+                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "title" : "ups",
+                        "place" : "ups",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "serverIcon",
+                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "title" : "server",
+                        "place" : "server",
+                        "iconRotation" : 0
+                    }
+                }
+
+            ]
+        },
+        "cooling":
+        {
+            "image": null,
+            "video": "assets/video/cooling.mp4",
+            "videoRotation": 270,
+            "name": "cooling",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position":{"x": 5, "y": -6, "z": 3},
+                        "title" : "cabinet4",
+                        "place" : "cabinet4",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "structuredCablingIcon",
+                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "title" : "structured_cabling",
+                        "place" : "structured_cabling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "upsIcon",
+                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "title" : "ups",
+                        "place" : "ups",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "serverIcon",
+                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "title" : "server",
+                        "place" : "server",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "ups":
+        {
+            "image": null,
+            "video": "assets/video/ups.mp4",
+            "videoRotation": 270,
+            "name": "ups",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position":{"x": 5, "y": -6, "z": 3},
+                        "title" : "cabinet4",
+                        "place" : "cabinet4",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "structuredCablingIcon",
+                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "title" : "structured_cabling",
+                        "place" : "structured_cabling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "coolingIcon",
+                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "title" : "cooling",
+                        "place" : "cooling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "serverIcon",
+                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "title" : "server",
+                        "place" : "server",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        
+        "server":
+        {
+            "image": null,
+            "video": "assets/video/server.mp4",
+            "videoRotation": 270,
+            "name": "server",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position":{"x": 5, "y": -6, "z": 3},
+                        "title" : "cabinet4",
+                        "place" : "cabinet4",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "structuredCablingIcon",
+                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "title" : "structured_cabling",
+                        "place" : "structured_cabling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "coolingIcon",
+                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "title" : "cooling",
+                        "place" : "cooling",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "upsIcon",
+                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "title" : "ups",
+                        "place" : "ups",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "power_supplies":
+        {
+            "image": null,
+            "video": "assets/video/power_supplies.mp4",
+            "videoRotation": 90,
+            "name": "power_supplies",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "securityIcon",
+                        "position": {"x": 5, "y": -6, "z": 5},
+                        "title" : "security",
+                        "place" : "security",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "back",
+                        "place" : "back",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "back":
+        {
+            "image": "assets/images/back.jpg",
+            "video": null,
+            "videoRotation": 90,
+            "name": "back",
+            "CountsTowardCompletetion": false,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": 5, "y": -6, "z": 5},
+                        "title" : "power_supplies",
+                        "place" : "power_supplies",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "structuredCablingIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "structured_cabling",
+                        "place" : "structured_cabling",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "structured_cabling":
+        {
+            "image": null,
+            "video": "assets/video/structured_cabling.mp4",
+            "videoRotation": 270,
+            "name": "structured_cabling",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "back",
+                        "place" : "back",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": 5, "y": -6, "z": 5},
+                        "title" : "cabinet2",
+                        "place" : "cabinet2",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "blade_system":
+        {
+            "image": null,
+            "video": "assets/video/blade_system.mp4",
+            "videoRotation": 270,
+            "name": "blade_system",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "cabinet2",
+                        "place" : "cabinet2",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "fireIcon",
+                        "position": {"x": 5, "y": -6, "z": 3},
+                        "title" : "fire_suppression",
+                        "place" : "fire_suppression",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "icon": "storageIcon",
+                        "position": {"x": -2, "y": -5, "z": 3},
+                        "title" : "storage",
+                        "place" : "storage",
+                        "iconRotation" : 0
+                    }
+                }
+            ]
+        },
+        "storage":
+        {
+            "image": null,
+            "video": "assets/video/storage.mp4",
+            "videoRotation": 270,
+            "name": "storage",
+            "CountsTowardCompletetion": true,
+            "interactions": [
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "navigationIcon",
+                        "position": {"x": -5, "y": -6, "z": -3},
+                        "title" : "cabinet2",
+                        "place" : "cabinet2",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    
+                    "payload" : {
+                        "icon": "fireIcon",
+                        "position": {"x": 5, "y": -6, "z": 3},
+                        "title" : "fire_suppression",
+                        "place" : "fire_suppression",
+                        "iconRotation" : 0
+                    }
+                },
+                {
+                    "kind": "navigationIcon",
+                    "payload" : {
+                        "icon": "bladeSystemIcon",
+                        "position": {"x": 4, "y": -5, "z": 2},
+                        "title" : "blade_system",
+                        "place" : "blade_system",
+                        "iconRotation" : 0
                     }
                 }
             ]
         }
+       
 
     },
-    "startPlace": "entry",
+    "startPlace": "intro",
     "icons": 
     {
         "navigationIcon": 
@@ -220,70 +564,69 @@
             "name" : "navigation",
             "image": "assets/images/icons/HomeIconRound.png" 
         },
-        "hotspotIcon": 
+        "bladeSystemIcon": 
         {
-            "name" : "hotspot",
-            "image": "assets/images/icons/hotspot.png" 
+            "name" : "bladeSystem",
+            "image": "assets/images/icons/blade_system.png" 
         },
-        "soundHotspot": 
+        "coolingIcon": 
         {
-            "name" : "soundHotspot",
-            "image": "assets/images/icons/soundhotspot.png" 
-        } 
+            "name" : "cooling",
+            "image": "assets/images/icons/cooling.png" 
+        },
+        "fireIcon": 
+        {
+            "name" : "fire",
+            "image": "assets/images/icons/fire.png" 
+        },
+        "introIcon": 
+        {
+            "name" : "intro",
+            "image": "assets/images/icons/intro.png" 
+        },
+        "securityIcon": 
+        {
+            "name" : "security",
+            "image": "assets/images/icons/security.png" 
+        },
+        "storageIcon": 
+        {
+            "name" : "storage",
+            "image": "assets/images/icons/storage.png" 
+        },
+        "structuredCablingIcon": 
+        {
+            "name" : "structuredCabling",
+            "image": "assets/images/icons/structured_cabling.png" 
+        },
+        "upsIcon": 
+        {
+            "name" : "ups",
+            "image": "assets/images/icons/ups.png" 
+        },
+        "powerSuppliesIcon":
+        {
+            "name" : "powerSupplies",
+            "image": "assets/images/icons/power_supplies.png" 
+        },
+        "serverIcon":
+        {
+            "name" : "server",
+            "image": "assets/images/icons/server.png" 
+        }
+
     },
     "hotspotImages":
     {
-        "dummy":
-        {
-            "name" : "dummy",
-            "image" : "assets/images/hotspots/Dummy.png"
-        },
-        "skeleton":
-        {
-            "name" : "skeleton",
-            "image" : "assets/images/hotspots/skeleton.png"
-        },
-        "electric":
-        {
-            "name" : "electric",
-            "image" : "assets/images/hotspots/electric.png"
-        },
-        "thicc":
-        {
-            "name" : "thicc",
-            "image" : "assets/images/hotspots/thicchotspot.png"
-        },
-        "soundClip":
-        {
-            "name" : "soundClip",
-            "image" : "assets/images/hotspots/soundClip.png"
-        }
+
     },
     "hotspotVideos":
     {
-        "horse":
-        {
-            "name" : "horse",
-            "video" : "assets/video/horse.mp4"
-        },
-        "coffee":
-        {
-            "name" : "coffee",
-            "video" : "assets/video/coffee.mp4"
-        }
+      
     },
     "hotspotAudio":
     {
-        "cchord":
-        {
-            "name" : "cchord",
-            "audio" : "assets/audio/cChord.mp3"
-        },
-        "cicadas":
-        {
-            "name" : "cicadas",
-            "audio" : "assets/audio/cicadas.mp3"
-        }
+        
     },
     "otherImages":
     {
