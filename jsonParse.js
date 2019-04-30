@@ -233,6 +233,7 @@ AFRAME.registerComponent("arena", {
                 //Error handling for videos that aren't found
                 console.log("Video not found");
             }
+
             //Set the videosphere's rotation because a lot of these videos are not facing the right way.
             videosphere.setAttribute("rotation", "0 " + place.videoRotation + " 0");
 
@@ -248,6 +249,8 @@ AFRAME.registerComponent("arena", {
                         videosphere.setAttribute('src', '#' + images[i].id);
                     }
                 }
+            //Set the videosphere's rotation because a lot of these pictures are not facing the right way.
+            videosphere.setAttribute("rotation", "0 " + place.videoRotation + " 0");
 
             }
             else {
@@ -255,6 +258,7 @@ AFRAME.registerComponent("arena", {
             }
         }
 
+        console.log(videosphere.getAttribute('rotation'));
 
         // place interactions in scene
         var interaction;

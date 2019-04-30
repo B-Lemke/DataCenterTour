@@ -11,20 +11,20 @@
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "fireIcon",
-                        "position": {"x": 3, "y": -6, "z": -10},
+                        "position": {"x": 7, "y": 4, "z": -11},
                         "title" : "fire_suppression",
                         "place" : "fire_suppression",
-                        "iconRotation" : 220
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "securityIcon",
-                        "position": {"x": 2, "y": -6, "z": 4},
+                        "position": {"x": 0, "y": 4, "z": 6},
                         "title" : "security",
                         "place" : "security",
-                        "iconRotation" : 330
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -41,21 +41,21 @@
                     
                     "payload" : {
                         "icon": "introIcon",
-                        "position": {"x": 6, "y": -6, "z": 3},
+                        "position": {"x": 3, "y": 4, "z": 6},
                         "title" : "intro",
                         "place" : "intro",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": 4, "y": -6, "z": -3},
+                        "icon": "leftIcon",
+                        "position": {"x": 3, "y": 4, "z": -11},
                         "title" : "cabinet4",
                         "place" : "cabinet4",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }                   
             ]
@@ -73,21 +73,21 @@
                     
                     "payload" : {
                         "icon": "introIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "position": {"x": -5, "y": 3, "z": -3},
                         "title" : "intro",
                         "place" : "intro",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": 5, "y": -6, "z": 3},
+                        "icon": "powerSuppliesIcon",
+                        "position": {"x": 7, "y": 3, "z": -6},
                         "title" : "power_supplies",
                         "place" : "power_supplies",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -96,7 +96,7 @@
         {
             "image": "assets/images/cabinet4.jpg",
             "video": null,
-            "videoRotation": 90,
+            "videoRotation": 270,
             "name": "cabinet4",
             "CountsTowardCompletetion": false,
             "interactions": [
@@ -104,11 +104,11 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "icon": "leftIcon",
+                        "position": {"x": -4, "y": 3, "z": -13},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
@@ -116,30 +116,30 @@
                     
                     "payload" : {
                         "icon": "fireIcon",
-                        "position": {"x": 5, "y": -6, "z": 3},
+                        "position": {"x": 8, "y": 3, "z": -4},
                         "title" : "fire_suppression",
                         "place" : "fire_suppression",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "bladeSystemIcon",
-                        "position": {"x": 4, "y": -5, "z": 2},
+                        "position": {"x": 5, "y": 1, "z": -6},
                         "title" : "blade_system",
                         "place" : "blade_system",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "storageIcon",
-                        "position": {"x": -2, "y": -5, "z": 3},
+                        "position": {"x": 5, "y": -4, "z": -6},
                         "title" : "storage",
                         "place" : "storage",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -148,63 +148,58 @@
         {
             "image": "assets/images/cabinet2.jpg",
             "video": null,
-            "videoRotation": 90,
+            "videoRotation": 270,
             "name": "cabinet2",
             "CountsTowardCompletetion": false,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position":{"x": 5, "y": -6, "z": 3},
+                        "icon": "rightIcon",
+                        "position":{"x": 7, "y": 3, "z": -2},
                         "title" : "cabinet4",
                         "place" : "cabinet4",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "structuredCablingIcon",
-                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "position":  {"x": -1, "y": 3, "z": -8},
                         "title" : "structured_cabling",
                         "place" : "structured_cabling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "coolingIcon",
-                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "position":  {"x": 1, "y": -7, "z": -6.5},
                         "title" : "cooling",
                         "place" : "cooling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "upsIcon",
-                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "position":  {"x": 6, "y": -6.5, "z": -6},
                         "title" : "ups",
                         "place" : "ups",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "serverIcon",
-                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "position":  {"x": 2.5, "y": 2, "z": -5},
                         "title" : "server",
                         "place" : "server",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
 
@@ -214,52 +209,48 @@
         {
             "image": null,
             "video": "assets/video/cooling.mp4",
-            "videoRotation": 270,
+            "videoRotation": 310,
             "name": "cooling",
             "CountsTowardCompletetion": true,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position":{"x": 5, "y": -6, "z": 3},
+                        "icon": "rightIcon",
+                        "position":{"x": 7, "y": 3, "z": -2},
                         "title" : "cabinet4",
                         "place" : "cabinet4",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "structuredCablingIcon",
-                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "position":  {"x": -1, "y": 3, "z": -8},
                         "title" : "structured_cabling",
                         "place" : "structured_cabling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "upsIcon",
-                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "position":  {"x": 6, "y": -6.5, "z": -6},
                         "title" : "ups",
                         "place" : "ups",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "serverIcon",
-                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "position":  {"x": 2.5, "y": 2, "z": -5},
                         "title" : "server",
                         "place" : "server",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -268,52 +259,48 @@
         {
             "image": null,
             "video": "assets/video/ups.mp4",
-            "videoRotation": 270,
+            "videoRotation": 310,
             "name": "ups",
             "CountsTowardCompletetion": true,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position":{"x": 5, "y": -6, "z": 3},
+                        "icon": "rightIcon",
+                        "position":{"x": 7, "y": 3, "z": -2},
                         "title" : "cabinet4",
                         "place" : "cabinet4",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "structuredCablingIcon",
-                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "position":  {"x": -1, "y": 3, "z": -8},
                         "title" : "structured_cabling",
                         "place" : "structured_cabling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "coolingIcon",
-                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "position":  {"x": 1, "y": -7, "z": -6.5},
                         "title" : "cooling",
                         "place" : "cooling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "serverIcon",
-                        "position":  {"x": -3, "y": -6, "z": 2},
+                        "position":  {"x": 2.5, "y": 2, "z": -5},
                         "title" : "server",
                         "place" : "server",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -323,52 +310,48 @@
         {
             "image": null,
             "video": "assets/video/server.mp4",
-            "videoRotation": 270,
+            "videoRotation": 310,
             "name": "server",
             "CountsTowardCompletetion": true,
             "interactions": [
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position":{"x": 5, "y": -6, "z": 3},
+                        "icon": "rightIcon",
+                        "position":{"x": 7, "y": 3, "z": -2},
                         "title" : "cabinet4",
                         "place" : "cabinet4",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "structuredCablingIcon",
-                        "position":  {"x": -5, "y": -6, "z": -3},
+                        "position":  {"x": -1, "y": 3, "z": -8},
                         "title" : "structured_cabling",
                         "place" : "structured_cabling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "coolingIcon",
-                        "position":  {"x": 4, "y": -6, "z": 2},
+                        "position":  {"x": 1, "y": -7, "z": -6.5},
                         "title" : "cooling",
                         "place" : "cooling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
-                    
                     "payload" : {
                         "icon": "upsIcon",
-                        "position":  {"x": 6, "y": -6, "z": 4},
+                        "position":  {"x": 6, "y": -6.5, "z": -6},
                         "title" : "ups",
                         "place" : "ups",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -377,7 +360,7 @@
         {
             "image": null,
             "video": "assets/video/power_supplies.mp4",
-            "videoRotation": 90,
+            "videoRotation": 270,
             "name": "power_supplies",
             "CountsTowardCompletetion": true,
             "interactions": [
@@ -386,21 +369,21 @@
                     
                     "payload" : {
                         "icon": "securityIcon",
-                        "position": {"x": 5, "y": -6, "z": 5},
+                        "position": {"x": -10, "y": 4, "z": -13},
                         "title" : "security",
                         "place" : "security",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "icon": "rightIcon",
+                        "position": {"x": 6, "y": 3, "z": 2},
                         "title" : "back",
                         "place" : "back",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -409,7 +392,7 @@
         {
             "image": "assets/images/back.jpg",
             "video": null,
-            "videoRotation": 90,
+            "videoRotation": 270,
             "name": "back",
             "CountsTowardCompletetion": false,
             "interactions": [
@@ -417,11 +400,11 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": 5, "y": -6, "z": 5},
+                        "icon": "powerSuppliesIcon",
+                        "position": {"x": -5, "y": 4, "z": -7},
                         "title" : "power_supplies",
                         "place" : "power_supplies",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
@@ -429,10 +412,10 @@
                     
                     "payload" : {
                         "icon": "structuredCablingIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "position": {"x": 5, "y": 4, "z": -7},
                         "title" : "structured_cabling",
                         "place" : "structured_cabling",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -449,22 +432,22 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "icon": "leftIcon",
+                        "position": {"x": 2.5, "y": 3, "z": -3},
                         "title" : "back",
                         "place" : "back",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": 5, "y": -6, "z": 5},
+                        "icon": "rightIcon",
+                        "position": {"x": 8, "y": 3, "z": 1},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -473,7 +456,7 @@
         {
             "image": null,
             "video": "assets/video/blade_system.mp4",
-            "videoRotation": 270,
+            "videoRotation": 283,
             "name": "blade_system",
             "CountsTowardCompletetion": true,
             "interactions": [
@@ -481,11 +464,11 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "icon": "left",
+                        "position": {"x": -3, "y": 4, "z": -13},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
@@ -493,20 +476,20 @@
                     
                     "payload" : {
                         "icon": "fireIcon",
-                        "position": {"x": 5, "y": -6, "z": 3},
+                        "position": {"x": 8, "y": 3, "z": -4},
                         "title" : "fire_suppression",
                         "place" : "fire_suppression",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "storageIcon",
-                        "position": {"x": -2, "y": -5, "z": 3},
+                        "position": {"x": 5, "y": -4, "z": -6},
                         "title" : "storage",
                         "place" : "storage",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -515,7 +498,7 @@
         {
             "image": null,
             "video": "assets/video/storage.mp4",
-            "videoRotation": 270,
+            "videoRotation": 335,
             "name": "storage",
             "CountsTowardCompletetion": true,
             "interactions": [
@@ -523,11 +506,11 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "navigationIcon",
-                        "position": {"x": -5, "y": -6, "z": -3},
+                        "icon": "left",
+                        "position": {"x": -5, "y": 3, "z": -13},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
@@ -535,20 +518,20 @@
                     
                     "payload" : {
                         "icon": "fireIcon",
-                        "position": {"x": 5, "y": -6, "z": 3},
+                        "position": {"x": 8, "y": 3, "z": -4},
                         "title" : "fire_suppression",
                         "place" : "fire_suppression",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 },
                 {
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "bladeSystemIcon",
-                        "position": {"x": 4, "y": -5, "z": 2},
+                        "position": {"x": 5, "y": 1, "z": -6},
                         "title" : "blade_system",
                         "place" : "blade_system",
-                        "iconRotation" : 0
+                        "iconRotation" : "look-at"
                     }
                 }
             ]
@@ -613,6 +596,16 @@
         {
             "name" : "server",
             "image": "assets/images/icons/server.png" 
+        },
+        "leftIcon":
+        {
+            "name" : "left",
+            "image": "assets/images/icons/left_arrow.png" 
+        },
+        "rightIcon":
+        {
+            "name" : "right",
+            "image": "assets/images/icons/right_arrow.png" 
         }
 
     },

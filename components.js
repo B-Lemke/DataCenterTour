@@ -26,7 +26,13 @@ AFRAME.registerComponent('navigation_icon', {
 
         //If an icon rotation hasn't been set, set one
         var iconRotation = payload.iconRotation != null ? payload.iconRotation : 0;
-        el.setAttribute('rotation', '270 ' + iconRotation + ' 0');
+        //If an icon rotation hasn't been set, set one
+        if(payload.iconRotation != "look-at"){
+            var rotationVector = {"x" : 270, "y" : iconRotation, "z": 0};
+            el.setAttribute('rotation', rotationVector);
+        } else {
+            el.setAttribute('look-at', '#camera');
+        }
 
         console.log(payload.icon);
         el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + payload.icon);
