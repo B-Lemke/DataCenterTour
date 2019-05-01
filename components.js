@@ -257,69 +257,72 @@ AFRAME.registerComponent('welcome_screen', {
     },
     //changed to update to make sure that the scaling on the fit-texture was working
     update: function () {
-        this.buttonMoved = false;
-        //This deals with autoplay issues where the browser requires an interaction before videos can be played.
+      
+        //If not a mobile device, stop the scene from autoplaying. This was because of the autoplay issues in some broswers.
+        if(!AFRAME.utils.device.isMobile()){
+            var camera = document.querySelector("a-camera");
+            camera.setAttribute("look-controls-enabled", false);
 
-        var el = this.el;
-        var sceneEl = document.querySelector('a-scene');
-
-
-        var plane = document.createElement("a-plane");
-
-        plane.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeImageotherImg' );
-        plane.setAttribute('width', 4)
-        plane.setAttribute('position', '0 3 -3');
-        plane.setAttribute('id', 'welcomePlane');
-        sceneEl.appendChild(plane);
-        plane.setAttribute("fit-texture", "");
-
-        var button = document.createElement("a-plane");
-
-        button.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeButtonotherImg' );
-        button.setAttribute('visible', false);
-        button.setAttribute('width', 1.5)
-        button.setAttribute('class', 'clickable');
-        button.setAttribute('id', 'welcomeButton');
-
-        sceneEl.appendChild(button);
-        button.setAttribute("fit-texture", "");
-
-
-        var camera = document.querySelector("a-camera");
-        camera.setAttribute("look-controls-enabled", false);
-
-
-        
-        //Remove everything from the scene and play the videosphere
-        button.addEventListener('click', function (evt) {
-
-            sceneEl.removeChild(plane);
-            sceneEl.removeChild(button);
-            camera.setAttribute("look-controls-enabled", true);
-
-            //play videosphere
-            var videosphere = document.querySelector("a-videosphere");
-            if(videosphere.getAttribute('src') != null){
-                document.querySelector(videosphere.getAttribute('src')).play();
-            }
+            this.buttonMoved = false;
+            //This deals with autoplay issues where the browser requires an interaction before videos can be played.
     
+            var el = this.el;
+            var sceneEl = document.querySelector('a-scene');
+    
+    
+            var plane = document.createElement("a-plane");
+    
+            plane.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeImageotherImg' );
+            plane.setAttribute('width', 4)
+            plane.setAttribute('position', '0 3 -3');
+            plane.setAttribute('id', 'welcomePlane');
+            sceneEl.appendChild(plane);
+            plane.setAttribute("fit-texture", "");
+    
+            var button = document.createElement("a-plane");
+    
+            button.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeButtonotherImg' );
+            button.setAttribute('visible', false);
+            button.setAttribute('width', 1.5)
+            button.setAttribute('class', 'clickable');
+            button.setAttribute('id', 'welcomeButton');
+    
+            sceneEl.appendChild(button);
+            button.setAttribute("fit-texture", "");
+            
+            
+            //Remove everything from the scene and play the videosphere
+            button.addEventListener('click', function (evt) {
 
-        });
+                sceneEl.removeChild(plane);
+                sceneEl.removeChild(button);
+                camera.setAttribute("look-controls-enabled", true);
 
+                //play videosphere
+                var videosphere = document.querySelector("a-videosphere");
+                if(videosphere.getAttribute('src') != null){
+                    document.querySelector(videosphere.getAttribute('src')).play();
+                }
+            });
+        }
+        
+       
 
     },
     tick: function (time, timeDelta){
-        //Had to wait for the resizing to happen to set these.
-        if(!this.buttonMoved){
-            var plane = document.querySelector("#welcomePlane");
-            var button = document.querySelector("#welcomeButton");
-            if(plane.getAttribute("geometry")!=undefined && button.getAttribute("geometry")!=undefined)
-            {
+        if(!AFRAME.utils.device.isMobile()){
+            //Had to wait for the resizing to happen to set these.
+            if(!this.buttonMoved){
+                var plane = document.querySelector("#welcomePlane");
+                var button = document.querySelector("#welcomeButton");
+                if(plane.getAttribute("geometry")!=undefined && button.getAttribute("geometry")!=undefined)
+                {
 
-                this.buttonMoved = true;
-                var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height)/2 + .225 ; 
-                button.setAttribute('position', '0 ' + buttonheight + ' -3');
-                button.setAttribute("visible", true);
+                    this.buttonMoved = true;
+                    var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height)/2 + .225 ; 
+                    button.setAttribute('position', '0 ' + buttonheight + ' -3');
+                    button.setAttribute("visible", true);
+                }
             }
         }
     }
@@ -354,6 +357,12 @@ AFRAME.registerComponent('fade-in', {
                 "startEvents": "fadeInGo"
             });
         }
+
+
+        //Make sure the element is visible when it begins fading in.
+        el.addEventListener('animationbegin', function(e){
+            this.setAttribute("visible", "true");
+       });
     },
 });
 
@@ -387,6 +396,12 @@ AFRAME.registerComponent('fade-out', {
                 "startEvents": "fadeOutGo"
             });
         }
+
+
+        //Prevent it from sticking around transparently
+        el.addEventListener('animationcomplete__fade-out', function(e){
+            this.setAttribute("visible", "false");
+        });
 
     }
 

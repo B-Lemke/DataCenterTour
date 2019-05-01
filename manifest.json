@@ -11,7 +11,7 @@
                     "kind": "navigationIcon",
                     "payload" : {
                         "icon": "fireIcon",
-                        "position": {"x": 7, "y": 4, "z": -11},
+                        "position": {"x": 6, "y": 4, "z": -11},
                         "title" : "fire_suppression",
                         "place" : "fire_suppression",
                         "iconRotation" : "look-at"
@@ -88,6 +88,20 @@
                         "title" : "power_supplies",
                         "place" : "power_supplies",
                         "iconRotation" : "look-at"
+                    }
+                },
+                {
+                    "kind": "hotspot",
+                    "icon": "badgeScanner",
+                    "payload" : {
+                        "position": {"x": -1, "y": 3, "z": 2},
+                        "title" : "badgeHotspot",
+                        "hotspotType" : "image",
+                        "hotspotScale" : 0.5,
+                        "hotspotImage" : "badgeHotspot",
+                        "hotspotRotation" : "look-at",
+                        "imageRotation" : {"x": 0, "y": 160, "z": 90},
+                        "imageScale" : 2
                     }
                 }
             ]
@@ -464,7 +478,7 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "left",
+                        "icon": "leftIcon",
                         "position": {"x": -3, "y": 4, "z": -13},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
@@ -506,7 +520,7 @@
                     "kind": "navigationIcon",
                     
                     "payload" : {
-                        "icon": "left",
+                        "icon": "leftIcon",
                         "position": {"x": -5, "y": 3, "z": -13},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
@@ -606,12 +620,22 @@
         {
             "name" : "right",
             "image": "assets/images/icons/right_arrow.png" 
+        },
+        "badgeScanner":
+        {
+            "name" : "badgeScanner",
+            "image": "assets/images/icons/badge_scanner.png" 
         }
 
     },
     "hotspotImages":
     {
-
+        
+        "badgeHotspot":
+        {
+            "name": "badgeHotspot",
+            "image": "assets/images/hotspots/badge.jpg"
+        }
     },
     "hotspotVideos":
     {

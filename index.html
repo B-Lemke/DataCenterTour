@@ -23,15 +23,11 @@
     <a-scene device_detector welcome_screen light="defaultLightsEnabled: false">
 
       <!--Asset Loading-->
-      <a-assets timeout="30000">
+      <a-assets timeout="10000">
 
       </a-assets>
 
 
-      <a-camera id="camera" wasd-controls-enabled="false" position="0 3 0">
-        <a-entity position="0 0 -5"  text="value: ; width: 4; align: center; alphaTest: 0.5" id="messageArea" fade-in fade-out></a-entity>
-      </a-camera>
-      
       <a-entity controller_connected windows-motion-controls laser-controls="hand: left" raycaster="objects: .clickable"></a-entity>
       <a-entity controller_connected windows-motion-controls laser-controls="hand: right" raycaster="objects: .clickable"></a-entity>
       
@@ -40,6 +36,12 @@
       <a-entity arena="manifest: manifest.json; videoSphere: #videoSphere"></a-entity>
 
       <a-entity light="intensity: 1; castShadow: true; type: ambient" position="-0.5 1 1" data-aframe-default-light="" visible=""></a-entity>
+
+
+      <a-camera id="camera" wasd-controls-enabled="false" position="0 3 0">
+        <a-entity position="0 0 -5"  text="value: ; width: 4; align: center; alphaTest: 0.5; transparent: true" id="messageArea" fade-in fade-out></a-entity>
+      </a-camera>
+      
     </a-scene>
 
     <script>
