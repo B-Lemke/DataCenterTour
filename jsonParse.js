@@ -157,7 +157,6 @@ AFRAME.registerComponent("arena", {
         //Pause any video that is already playing
         if (videosphere.getAttribute('src') != null) {
             var currentSource = document.querySelector(videosphere.getAttribute('src'));
-            console.log(currentSource.nodeName)
             if (currentSource.nodeName == "VIDEO") {
                 currentSource.pause();
             }
@@ -173,7 +172,6 @@ AFRAME.registerComponent("arena", {
     
             if (!data.VisitedList.includes(place.name)){
                 data.VisitedList.push(place.name);
-                console.log(data.VisitedList);
 
 
                 var arraysEqual = areArraysEqualSets(data.VisitedList, data.CompletetionList);
@@ -223,7 +221,7 @@ AFRAME.registerComponent("arena", {
                     videosphere.setAttribute('src', '#' + videos[i].id);
                     video = document.querySelector("#" + videos[i].id);
 
-                    video.currentTime = 0;
+                    //video.currentTime = 0; This line causes major bugs in firefox. Bug 1507193 on bugzilla
                     video.play();
 
                     videoFound = true;
@@ -245,7 +243,6 @@ AFRAME.registerComponent("arena", {
 
                 for (var i = 0; i < images.length; i++) {
                     if (images[i].src.endsWith(place.image)) {
-                        console.log("found");
                         videosphere.setAttribute('src', '#' + images[i].id);
                     }
                 }
@@ -257,8 +254,6 @@ AFRAME.registerComponent("arena", {
                 console.log("Video null");
             }
         }
-
-        console.log(videosphere.getAttribute('rotation'));
 
         // place interactions in scene
         var interaction;
