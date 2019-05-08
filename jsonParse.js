@@ -45,6 +45,7 @@ AFRAME.registerComponent("arena", {
                     video.setAttribute('crossorigin', 'anonymous');
                     video.setAttribute('playsinline', true);
                     video.setAttribute('webkit-playsinline', true);
+                    //video.setAttribute('preload', 'auto');
                     video.setAttribute('src', data.jsonparsed.places[key].video);
 
                     var assets = document.querySelector("a-assets");
@@ -294,6 +295,8 @@ AFRAME.registerComponent("arena", {
     }
 
 })
+
+
 
 
 // assumes array elements are primitive types

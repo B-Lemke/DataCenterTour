@@ -33,7 +33,7 @@ AFRAME.registerComponent('navigation_icon', {
         } else {
             el.setAttribute('look-at', '#camera');
         }
-        
+
         el.setAttribute('material', 'transparent:true; alphaTest: 0.5; opacity:0.9; src: #' + payload.icon);
 
         //Give the entity a class we can refer to it by later, and make it clickable
@@ -281,7 +281,6 @@ AFRAME.registerComponent('welcome_screen', {
             var button = document.createElement("a-plane");
     
             button.setAttribute('material', 'transparent:true; opacity:1; src: #welcomeButtonotherImg' );
-            button.setAttribute('visible', false);
             button.setAttribute('width', 1.5)
             button.setAttribute('class', 'clickable');
             button.setAttribute('id', 'welcomeButton');
@@ -303,6 +302,11 @@ AFRAME.registerComponent('welcome_screen', {
                     document.querySelector(videosphere.getAttribute('src')).play();
                 }
             });
+
+
+
+
+
         }
         
        
@@ -320,7 +324,7 @@ AFRAME.registerComponent('welcome_screen', {
                     this.buttonMoved = true;
                     var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height)/2 + .225 ; 
                     button.setAttribute('position', '0 ' + buttonheight + ' -3');
-                    button.setAttribute("visible", true);
+
                 }
             }
         }
