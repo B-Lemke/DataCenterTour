@@ -259,8 +259,7 @@ AFRAME.registerComponent('welcome_screen', {
       
         //If not a mobile device, stop the scene from autoplaying. This was because of the autoplay issues in some broswers.
         if(!AFRAME.utils.device.isMobile()){
-            var camera = document.querySelector("a-camera");
-            camera.setAttribute("look-controls-enabled", false);
+
 
             this.buttonMoved = false;
             //This deals with autoplay issues where the browser requires an interaction before videos can be played.
@@ -305,8 +304,6 @@ AFRAME.registerComponent('welcome_screen', {
 
 
 
-
-
         }
         
        
@@ -324,6 +321,12 @@ AFRAME.registerComponent('welcome_screen', {
                     this.buttonMoved = true;
                     var buttonheight = (plane.getAttribute("position").y) - (plane.getAttribute("geometry").height)/2 + .225 ; 
                     button.setAttribute('position', '0 ' + buttonheight + ' -3');
+
+
+                    
+                    var camera = document.querySelector("a-camera");
+                    camera.setAttribute('position', {x:0, y:3, z:0});
+                    camera.setAttribute("look-controls-enabled", false);
 
                 }
             }
