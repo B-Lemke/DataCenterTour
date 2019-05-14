@@ -2,7 +2,7 @@
     "places":{
         "intro" : {
             "name": "intro",
-            "image": null,
+            "image": "assets/images/intro.jpg",
             "video": "assets/video/intro.mp4",
             "CountsTowardCompletetion": true,
             "videoRotation": 270,
@@ -30,7 +30,7 @@
             ]
         },
         "fire_suppression" : {
-            "image": null,
+            "image": "assets/images/fire_suppression.jpg",
             "video": "assets/video/fire_suppression.mp4",
             "videoRotation": 270,
             "name": "fire_suppression",
@@ -62,7 +62,7 @@
         },
         "security" :
         {
-            "image": null,
+            "image": "assets/images/security.jpg",
             "video": "assets/video/security.mp4",
             "videoRotation": 90,
             "name": "security",
@@ -221,7 +221,7 @@
         },
         "cooling":
         {
-            "image": null,
+            "image": "assets/images/cooling.jpg",
             "video": "assets/video/cooling.mp4",
             "videoRotation": 310,
             "name": "cooling",
@@ -271,7 +271,7 @@
         },
         "ups":
         {
-            "image": null,
+            "image": "assets/images/ups.jpg",
             "video": "assets/video/ups.mp4",
             "videoRotation": 310,
             "name": "ups",
@@ -322,7 +322,7 @@
         
         "server":
         {
-            "image": null,
+            "image": "assets/images/server.jpg",
             "video": "assets/video/server.mp4",
             "videoRotation": 310,
             "name": "server",
@@ -372,7 +372,7 @@
         },
         "power_supplies":
         {
-            "image": null,
+            "image": "assets/images/power_supplies.jpg",
             "video": "assets/video/power_supplies.mp4",
             "videoRotation": 270,
             "name": "power_supplies",
@@ -436,7 +436,7 @@
         },
         "structured_cabling":
         {
-            "image": null,
+            "image": "assets/images/structured_cabling.jpg",
             "video": "assets/video/structured_cabling.mp4",
             "videoRotation": 270,
             "name": "structured_cabling",
@@ -447,7 +447,7 @@
                     
                     "payload" : {
                         "icon": "leftIcon",
-                        "position": {"x": 2.5, "y": 3, "z": -3},
+                        "position": {"x": 6, "y": 3, "z": -7.5},
                         "title" : "back",
                         "place" : "back",
                         "iconRotation" : "look-at"
@@ -458,7 +458,7 @@
                     
                     "payload" : {
                         "icon": "rightIcon",
-                        "position": {"x": 8, "y": 3, "z": 1},
+                        "position": {"x": 11, "y": 3, "z": 1},
                         "title" : "cabinet2",
                         "place" : "cabinet2",
                         "iconRotation" : "look-at"
@@ -468,7 +468,7 @@
         },
         "blade_system":
         {
-            "image": null,
+            "image": "assets/images/blade_system.jpg",
             "video": "assets/video/blade_system.mp4",
             "videoRotation": 283,
             "name": "blade_system",
@@ -510,7 +510,7 @@
         },
         "storage":
         {
-            "image": null,
+            "image": "assets/images/storage.jpg",
             "video": "assets/video/storage.mp4",
             "videoRotation": 335,
             "name": "storage",
